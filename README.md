@@ -1,10 +1,10 @@
-# Resultados SABER PRO 2015 - Análisis Reflexivo
+# Resultados SABER PRO 2015 - Public
 
 ## 📋 Sobre este repositorio
 
 Este repositorio documenta los resultados oficiales del examen SABER PRO presentado en noviembre de 2015, junto con un análisis estadístico y una reflexión sobre el aprendizaje continuo.
 
-**Propósito:** Compartir resultados académicos con transparencia metodológica, no como acto de presunción sino como ejercicio de autoconocimiento y documentación del desarrollo profesional.
+**Propósito:** Compartir resultados académicos con transparencia metodológica, como ejercicio de transparencia pública en el ejercicio profesional, autoconocimiento y mejora continua de mis competencias de tipo profesional.
 
 ---
 
@@ -29,7 +29,7 @@ saber-pro-2015/
 │   ├── EK201532097061.pdf            # Resultado oficial ICFES
 │   └── interpretacion-estadistica.md  # Análisis metodológico detallado
 ├── visualizacion/
-│   └── dashboard.html                # Visualización interactiva de resultados
+│   └── index.html                # Visualización interactiva de resultados
 └── LICENSE
 ```
 
@@ -128,8 +128,7 @@ Estos resultados representan un momento específico en el tiempo, no un estado p
 ## 📧 Contacto
 
 Para consultas sobre estos resultados o su interpretación:
-- **LinkedIn:** [Tu perfil]
-- **Email:** [Tu email]
+- **Email:** [williamc0524@gmail.com]
 
 ---
 
