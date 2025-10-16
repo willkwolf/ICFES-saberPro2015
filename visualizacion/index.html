@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resultados oficiales SABER PRO 2015 - William Camilo Artunduaga Viana">
+    <title>Resultados SABER PRO 2015 - William Camilo Artunduaga Viana</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --border-color: #e5e7eb;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --info-color: #06b6d4;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-primary);
+            border-bottom: 3px solid var(--primary-color);
+            padding: 40px 0;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            max-width: 1200px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            margin-top: 40px;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            color: var(--text-primary);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        /* Info Card */
+        .info-card {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+            margin-top: 20px;
+        }
+
+        /* Table */
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 40px;
+        }
+
+        table {
+            width: 100%;
+            background-color: var(--bg-primary);
+            border-collapse: collapse;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        thead {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        td {
+            padding: 15px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        tbody tr:hover {
+            background-color: var(--bg-secondary);
+        }
+
+        .quintil-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: white;
+        }
+
+        .q1 { background-color: #94a3b8; }
+        .q2 { background-color: #64748b; }
+        .q3 { background-color: #3b82f6; }
+        .q4 { background-color: #8b5cf6; }
+        .q5 { background-color: #6366f1; }
+
+        /* Methodology Box */
+        .methodology-box {
+            background-color: #fef3c7;
+            border-left: 4px solid var(--warning-color);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .methodology-box h3 {
+            color: #92400e;
+            margin-top: 0;
+        }
+
+        .methodology-box p {
+            color: #78350f;
+            margin-bottom: 10px;
+        }
+
+        .methodology-box ul {
+            margin-left: 20px;
+            color: #78350f;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-primary);
+            border-top: 1px solid var(--border-color);
+            padding: 30px 0;
+            margin-top: 60px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: var(--bg-secondary);
+            border-radius: 6px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+
+        .legend-text {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chart-wrapper {
+                height: 300px;
+            }
+
+            table {
+                font-size: 0.8rem;
+            }
+
+            th, td {
+                padding: 10px 8px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+            }
+
+            .chart-container,
+            .info-card,
+            .stat-card {
+                break-inside: avoid;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Resultados SABER PRO 2015</h1>
+            <p class="subtitle">William Camilo Artunduaga Viana</p>
+            <p class="subtitle">Ingeniería Industrial - Universidad ICESI</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Información Oficial -->
+        <section>
+            <div class="info-card">
+                <h3>Información del Examen</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Examinado</span>
+                        <span class="info-value">William Camilo Artunduaga Viana</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Programa Académico</span>
+                        <span class="info-value">Ingeniería Industrial</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Institución</span>
+                        <span class="info-value">Universidad ICESI, Cali</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Fecha de Examen</span>
+                        <span class="info-value">22 de Noviembre de 2015</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Código de Registro</span>
+                        <span class="info-value">EK201532097061</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Fuente</span>
+                        <span class="info-value">ICFES - Instituto Colombiano para la Evaluación de la Educación</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resumen Estadístico -->
+        <section>
+            <h2>Resumen Estadístico</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">11.2</div>
+                    <div class="stat-label">Promedio General<br>(8 módulos)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6/8</div>
+                    <div class="stat-label">Módulos en Quintiles 4-5<br>(Top 40%)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7/8</div>
+                    <div class="stat-label">Módulos sobre<br>Promedio Nacional</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gráfico Comparativo -->
+        <section>
+            <h2>Comparación de Puntajes</h2>
+            <div class="chart-container">
+                <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                    Comparación entre puntaje individual, promedio del grupo de referencia (Ingeniería) y promedio nacional. 
+                    Los puntajes están estandarizados con media=10 y desviación estándar=1.
+                </p>
+                <div class="chart-wrapper">
+                    <canvas id="comparisonChart"></canvas>
+                </div>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #4f46e5;"></div>
+                        <span class="legend-text">Puntaje Individual</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #06b6d4;"></div>
+                        <span class="legend-text">Promedio Grupo Referencia</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #94a3b8;"></div>
+                        <span class="legend-text">Promedio Nacional</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabla de Competencias Genéricas -->
+        <section>
+            <h2>Competencias Genéricas</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Módulo</th>
+                            <th>Puntaje</th>
+                            <th>Nivel</th>
+                            <th>Quintil</th>
+                            <th>Grupo Ref.</th>
+                            <th>Nacional</th>
+                            <th>N Grupo</th>
+                            <th>N Nacional</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Comunicación Escrita</td>
+                            <td><strong>9.2</strong></td>
+                            <td>3</td>
+                            <td><span class="quintil-badge q1">Q1</span></td>
+                            <td>10.0</td>
+                            <td>10.0</td>
+                            <td>43,932</td>
+                            <td>215,703</td>
+                        </tr>
+                        <tr>
+                            <td>Razonamiento Cuantitativo</td>
+                            <td><strong>11.5</strong></td>
+                            <td>3</td>
+                            <td><span class="quintil-badge q4">Q4</span></td>
+                            <td>10.8</td>
+                            <td>10.1</td>
+                            <td>44,063</td>
+                            <td>216,501</td>
+                        </tr>
+                        <tr>
+                            <td>Lectura Crítica</td>
+                            <td><strong>11.6</strong></td>
+                            <td>3</td>
+                            <td><span class="quintil-badge q5">Q5</span></td>
+                            <td>10.6</td>
+                            <td>10.5</td>
+                            <td>44,063</td>
+                            <td>216,501</td>
+                        </tr>
+                        <tr>
+                            <td>Competencias Ciudadanas</td>
+                            <td><strong>10.6</strong></td>
+                            <td>-</td>
+                            <td><span class="quintil-badge q4">Q4</span></td>
+                            <td>10.2</td>
+                            <td>10.1</td>
+                            <td>44,063</td>
+                            <td>216,501</td>
+                        </tr>
+                        <tr>
+                            <td>Inglés</td>
+                            <td><strong>11.7</strong></td>
+                            <td>B1</td>
+                            <td><span class="quintil-badge q4">Q4</span></td>
+                            <td>10.7</td>
+                            <td>10.2</td>
+                            <td>44,063</td>
+                            <td>310,468</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Tabla de Competencias Específicas -->
+        <section>
+            <h2>Competencias Específicas (Ingeniería)</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Módulo</th>
+                            <th>Puntaje</th>
+                            <th>Quintil</th>
+                            <th>Grupo Ref.</th>
+                            <th>Nacional</th>
+                            <th>N Grupo</th>
+                            <th>N Nacional</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Formulación de Proyectos de Ingeniería</td>
+                            <td><strong>10.1</strong></td>
+                            <td><span class="quintil-badge q3">Q3</span></td>
+                            <td>10.0</td>
+                            <td>10.0</td>
+                            <td>44,006</td>
+                            <td>44,019</td>
+                        </tr>
+                        <tr>
+                            <td>Pensamiento Científico - Matemáticas y Estadística</td>
+                            <td><strong>12.9</strong></td>
+                            <td><span class="quintil-badge q5">Q5</span></td>
+                            <td>10.0</td>
+                            <td>10.1</td>
+                            <td>22,028</td>
+                            <td>22,375</td>
+                        </tr>
+                        <tr>
+                            <td>Diseño de Sistemas Productivos y Logísticos</td>
+                            <td><strong>11.1</strong></td>
+                            <td><span class="quintil-badge q5">Q5</span></td>
+                            <td>10.0</td>
+                            <td>10.0</td>
+                            <td>10,849</td>
+                            <td>10,849</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Nota Metodológica -->
+        <section>
+            <h2>Nota Metodológica</h2>
+            <div class="methodology-box">
+                <h3>Interpretación de Puntajes</h3>
+                <p><strong>Escala Estandarizada:</strong> Los puntajes están normalizados con media (μ) = 10.0 y desviación estándar (σ) = 1.0. Un puntaje de 11.0 equivale aproximadamente al percentil 84 en una distribución normal.</p>
+                
+                <p><strong>Quintiles (Q1-Q5):</strong> Dividen al grupo de referencia en cinco partes iguales del 20% cada una:</p>
+                <ul>
+                    <li><strong>Q5:</strong> Top 20% (percentiles 80-100)</li>
+                    <li><strong>Q4:</strong> Percentiles 60-80</li>
+                    <li><strong>Q3:</strong> Percentiles 40-60</li>
+                    <li><strong>Q2:</strong> Percentiles 20-40</li>
+                    <li><strong>Q1:</strong> Percentiles 0-20</li>
+                </ul>
+
+                <p><strong>Grupo de Referencia:</strong> Los quintiles se calculan respecto al grupo de referencia (estudiantes de ingeniería), no respecto a la población nacional completa. El grupo de ingeniería presenta promedios superiores en áreas cuantitativas comparado con el promedio nacional.</p>
+
+                <p><strong>Tamaño de Muestra (N):</strong> Indica el número de estudiantes evaluados en cada categoría. Los valores varían porque no todos los módulos se aplican a todos los grupos.</p>
+            </div>
+        </section>
+
+        <!-- Información Adicional -->
+        <section>
+            <h2>Referencias y Documentación</h2>
+            <div class="info-card">
+                <p style="margin-bottom: 15px;">Para información adicional sobre metodología estadística, interpretación de resultados y contexto del examen SABER PRO, consultar:</p>
+                <ul style="margin-left: 20px; color: var(--text-secondary);">
+                    <li><strong>Documento oficial ICFES:</strong> <code>docs/EK201532097061.pdf</code></li>
+                    <li><strong>Análisis estadístico detallado:</strong> <code>docs/interpretacion-estadistica.md</code></li>
+                    <li><strong>Metodología ICFES:</strong> <code>docs/metodologia-icfes.md</code></li>
+                    <li><strong>Portal oficial ICFES:</strong> <a href="https://www.icfes.gov.co" target="_blank">www.icfes.gov.co</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Resultados oficiales SABER PRO 2015 - Código de registro: EK201532097061</p>
+            <p style="margin-top: 10px;">Fuente: ICFES (Instituto Colombiano para la Evaluación de la Educación)</p>
+            <p style="margin-top: 10px;">
+                Repositorio: <a href="https://github.com/TU_USUARIO/saber-pro-2015-reflexion" target="_blank">GitHub</a> | 
+                Licencia: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
+            </p>
+            <p style="margin-top: 15px; font-size: 0.8rem; color: var(--text-secondary);">
+                Última actualización: Octubre 2025
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Datos
+        const data = {
+            labels: [
+                'Comunicación\nEscrita',
+                'Razonamiento\nCuantitativo',
+                'Lectura\nCrítica',
+                'Competencias\nCiudadanas',
+                'Inglés',
+                'Formulación\nde Proyectos',
+                'Pensamiento\nCientífico',
+                'Diseño de\nSistemas'
+            ],
+            datasets: [
+                {
+                    label: 'Puntaje Individual',
+                    data: [9.2, 11.5, 11.6, 10.6, 11.7, 10.1, 12.9, 11.1],
+                    backgroundColor: '#4f46e5',
+                    borderColor: '#4338ca',
+                    borderWidth: 2
+                },
+                {
+                    label: 'Promedio Grupo Referencia',
+                    data: [10.0, 10.8, 10.6, 10.2, 10.7, 10.0, 10.0, 10.0],
+                    backgroundColor: '#06b6d4',
+                    borderColor: '#0891b2',
+                    borderWidth: 2
+                },
+                {
+                    label: 'Promedio Nacional',
+                    data: [10.0, 10.1, 10.5, 10.1, 10.2, 10.0, 10.1, 10.0],
+                    backgroundColor: '#94a3b8',
+                    borderColor: '#64748b',
+                    borderWidth: 2
+                }
+            ]
+        };
+
+        // Configuración del gráfico
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            font: {
+                                size: 12
+                            },
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        titleFont: {
+                            size: 14
+                        },
+                        bodyFont: {
+                            size: 13
+                        },
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.y.toFixed(1);
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 8,
+                        max: 14,
+                        ticks: {
+                            stepSize: 0.5,
+                            font: {
+                                size: 11
+                            }
+                        },
+                        grid: {
+                            color: '#e5e7eb'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Puntaje Estandarizado (μ=10, σ=1)',
+                            font: {
+                                size: 12,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            font: {
+                                size: 10
+                            },
+                            maxRotation: 45,
+                            minRotation: 45
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        };
+
+        // Crear el gráfico
+        const ctx = document.getElementById('comparisonChart');
+        new Chart(ctx, config);
+    </script>
+</body>
+</html>
