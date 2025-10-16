@@ -284,26 +284,26 @@ En poblaciones típicas de SABER PRO, se observan estas correlaciones:
 
 ---
 
-## 🌟 Principio Confuciano Aplicado
+## 🌟 Principios de conocimiento
 
 > "El conocimiento real consiste en conocer la extensión de la propia ignorancia."
 
-### Interpretación filosófica de los datos
+### Interpretación personal de los datos
 
 **Humildad epistemológica:**
 - Los números muestran **dónde estoy**, no **quién soy**
 - El Q5 en una competencia no implica maestría absoluta
 - El Q1 en otra no implica incompetencia permanente
 
-**Camino del aprendiz (修行):**
+**Camino del aprendiz:**
 - Fortalezas identificadas → **consolidar y profundizar**
 - Debilidades identificadas → **reconocer y cultivar**
 - Brecha entre ambas → **oportunidad para balance**
 
-**Virtud (德) sobre mérito (功):**
-- Más importante que los puntajes: **qué hago con esta información**
+**Virtud, sobre mérito:**
+- Más importante que los puntajes: **¿qué hago con esta información?**
 - El carácter se forja en cómo respondo a debilidades identificadas
-- La sabiduría está en buscar mejora continua, no perfección estática
+- La sabiduría está en buscar la mejora continua, no la perfección estática
 
 ---
 
