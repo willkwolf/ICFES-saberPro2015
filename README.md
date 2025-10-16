@@ -25,17 +25,20 @@ Este repositorio documenta los resultados oficiales del examen SABER PRO present
 saber-pro-2015/
 │
 ├── README.md                          # Este archivo
-├── docs/
+├── assets/
 │   ├── EK201532097061.pdf            # Resultado oficial ICFES
-│   └── interpretacion-estadistica.md  # Análisis metodológico detallado
-├── visualizacion/
-│   └── index.html                # Visualización interactiva de resultados
+│   └── interpretacion-estadistica.md # Análisis metodológico detallado
+    └── metodologia_icfes.md          # Análisis metodológico detallado
+├── docs/
+│   └── index.html                    # Visualización de resultados
 └── LICENSE
 ```
 
 ---
 
 ## 🎯 Resultados Resumidos
+
+- **Visualización de Resultados:** https://willkwolf.github.io/ICFES-saberPro2015/index.html
 
 ### Competencias Genéricas
 
