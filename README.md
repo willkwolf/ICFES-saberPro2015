@@ -27,8 +27,8 @@ saber-pro-2015/
 ├── README.md                          # Este archivo
 ├── assets/
 │   ├── EK201532097061.pdf            # Resultado oficial ICFES
-│   └── interpretacion-estadistica.md # Análisis metodológico detallado
-    └── metodologia_icfes.md          # Análisis metodológico detallado
+│   ├── interpretacion_estadistica.md # Análisis estadístico detallado
+│   └── metodologia_icfes.md          # Análisis metodológico detallado
 ├── docs/
 │   └── index.html                    # Visualización de resultados
 └── LICENSE
@@ -124,7 +124,8 @@ Estos resultados representan un momento específico en el tiempo, no un estado p
 
 - [ICFES - Información oficial SABER PRO](https://www.icfes.gov.co/)
 - [Guías de orientación SABER PRO](https://www.icfes.gov.co/guias-de-orientacion)
-- Documento técnico: `docs/interpretacion-estadistica.md`
+- Documento técnico: `assets/interpretacion_estadistica.md`
+- Metodología ICFES: `assets/metodologia_icfes.md`
 
 ---
 
