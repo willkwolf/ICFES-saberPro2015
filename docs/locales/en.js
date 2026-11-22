@@ -38,7 +38,15 @@ const en = {
     "subtitle": "William Camilo Artunduaga Viana",
     "degree_info": "Industrial Engineering — ICESI University, Cali",
     "official_badge": "Verified Official Certification",
-    "disclaimer": "Official public report of test results and institutional benchmarks"
+    "disclaimer": "Official public report of test results and institutional benchmarks",
+    "summary_kicker": "Performance Summary",
+    "narrative_p1": "Public and independent report of the 2015 SABER PRO national examination results (ICFES), taken upon graduating from the Industrial Engineering program at Universidad ICESI.",
+    "narrative_p2": "In the English examination, the candidate achieved the B2 proficiency level and ranked in the top 0.6% nationally (99.4th percentile). Additionally, scores exceeded the national average across 7 of the 8 evaluated modules (87.5%).",
+    "narrative_p3": "Furthermore, results placed in the nation's highest performance tiers (Quintiles Q4 and Q5) across 75% of both generic and engineering-specific competencies assessed.",
+    "chip_english": "Top 0.6% in English (B2 / 99.4th Percentile)",
+    "chip_national": "87.5% above national mean (7 of 8 modules)",
+    "chip_quintiles": "75% in highest national tiers (Q4 & Q5)",
+    "chip_institution": "Universidad ICESI · Cali"
   },
   "candidate_info": {
     "title": "Official Examination Information",

@@ -38,7 +38,15 @@ const es = {
     "subtitle": "William Camilo Artunduaga Viana",
     "degree_info": "Ingeniería Industrial — Universidad ICESI, Cali",
     "official_badge": "Certificación Oficial Verificada",
-    "disclaimer": "Reporte público de resultados y desempeño institucional"
+    "disclaimer": "Reporte público de resultados y desempeño institucional",
+    "summary_kicker": "Resumen de Desempeño",
+    "narrative_p1": "Consulta pública e independiente de los resultados del examen de Estado de educación superior SABER PRO 2015 (ICFES), presentado al finalizar el programa de Ingeniería Industrial de la Universidad ICESI.",
+    "narrative_p2": "En la prueba de Inglés, el evaluado alcanzó el nivel B2 y se ubicó en el 0,6% de mejores resultados del país (percentil 99,4). Además, obtuvo desempeños superiores al promedio nacional en 7 de los 8 módulos evaluados (87,5%).",
+    "narrative_p3": "De forma complementaria, sus resultados se ubicaron en los niveles de desempeño más altos del país (quintiles Q4 y Q5) en el 75% de las competencias transversales y específicas de ingeniería evaluadas.",
+    "chip_english": "Top 0,6% en Inglés (B2 / Percentil 99,4)",
+    "chip_national": "87,5% sobre la media nacional (7 de 8)",
+    "chip_quintiles": "75% en niveles más altos del país (Q4 y Q5)",
+    "chip_institution": "Universidad ICESI · Cali"
   },
   "candidate_info": {
     "title": "Información Oficial del Examen",
