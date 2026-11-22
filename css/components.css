@@ -624,6 +624,129 @@ table.data-table tbody tr:hover {
   word-break: break-word;
 }
 
+/* Rapid 7-Second Modular Performance Grid (Meta / React Dashboard Style) */
+.modules-quick-section {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.modules-quick-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.modules-quick-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.modules-quick-subtitle {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+}
+
+.modules-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 0.85rem;
+}
+
+.module-quick-card {
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.35rem;
+  min-width: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.module-quick-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: var(--card-shadow);
+}
+
+.mod-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mod-type-tag {
+  font-size: 0.725rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mod-badges-cluster {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.level-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-surface-subtle);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  line-height: 1.2;
+}
+
+.mod-card-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0.15rem 0 0.25rem;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.mod-card-score {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--color-primary-600);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.mod-card-meta {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.mod-card-diff {
+  font-weight: 600;
+}
+
+.mod-card-diff.positive {
+  color: #166534;
+}
+
+[data-theme="dark"] .mod-card-diff.positive {
+  color: #4ade80;
+}
+
 /* Mobile Ergonomics & Anti-Truncation Rules */
 @media (max-width: 640px) {
   .hero-header {

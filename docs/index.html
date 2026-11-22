@@ -77,7 +77,7 @@
                         <div>
                             <div class="hero-title-row">
                                 <h2 id="heading-summary" class="hero-candidate-name" data-i18n="candidate_info.candidate_name">William Camilo Artunduaga Viana</h2>
-                                <span class="badge badge-verified" data-i18n="header.official_badge">Certificación Oficial ICFES</span>
+                                <span class="badge badge-verified" data-i18n="header.official_badge">Certificación Oficial Verificada</span>
                             </div>
                             <p class="hero-degree" data-i18n="header.degree_info">Ingeniería Industrial — Universidad ICESI, Cali</p>
                         </div>
@@ -88,17 +88,167 @@
                     </div>
                 </div>
 
+                <!-- Key Performance Indicator Cards (Meta Dashboard KPI Grid - First 7 Seconds Scan) -->
+                <div class="stats-grid">
+                    <div class="stat-card" id="card-mean">
+                        <div class="stat-card-header">
+                            <span class="stat-badge">Media Oficial</span>
+                        </div>
+                        <div class="stat-number">11.2</div>
+                        <div class="stat-label" data-i18n="stats.arithmetic_mean.title">Promedio General</div>
+                        <div class="stat-sublabel" data-i18n="stats.arithmetic_mean.subtitle">Media aritmética en escala 1 a 20 (8 módulos)</div>
+                    </div>
+                    <div class="stat-card" id="card-quintiles">
+                        <div class="stat-card-header">
+                            <span class="stat-badge">Referencia Ingeniería</span>
+                        </div>
+                        <div class="stat-number">6/8</div>
+                        <div class="stat-label" data-i18n="stats.high_quintiles.title">Quintiles Superiores</div>
+                        <div class="stat-sublabel" data-i18n="stats.high_quintiles.subtitle">75% en el 40% superior de ingeniería (Q4 y Q5)</div>
+                    </div>
+                    <div class="stat-card" id="card-above-nac">
+                        <div class="stat-card-header">
+                            <span class="stat-badge">Referente País</span>
+                        </div>
+                        <div class="stat-number">7/8</div>
+                        <div class="stat-label" data-i18n="stats.above_national.title">Sobre Promedio Nacional</div>
+                        <div class="stat-sublabel" data-i18n="stats.above_national.subtitle">87,5% de módulos superan la media del país (7 de 8)</div>
+                    </div>
+                    <div class="stat-card" id="card-top-performance">
+                        <div class="stat-card-header">
+                            <span class="stat-badge">Nivel Máximo</span>
+                        </div>
+                        <div class="stat-number">Q5</div>
+                        <div class="stat-label" data-i18n="stats.top_performance.title">Máximo Desempeño</div>
+                        <div class="stat-sublabel" data-i18n="stats.top_performance.subtitle">Ubicación en el 20% superior nacional en 3 módulos</div>
+                    </div>
+                </div>
+
+                <!-- Rapid 7-Second Modular Performance Grid -->
+                <div class="modules-quick-section">
+                    <div class="modules-quick-header">
+                        <h3 class="modules-quick-title" data-i18n="modules_quick.title">Módulos Evaluados (8)</h3>
+                        <span class="modules-quick-subtitle" data-i18n="modules_quick.subtitle">Puntajes individuales, quintiles y comparativa nacional</span>
+                    </div>
+                    <div class="modules-quick-grid" role="region" aria-label="Módulos evaluados">
+                        <!-- 1. Pensamiento Científico -->
+                        <article class="module-quick-card">
+                            <div class="mod-card-top">
+                                <span class="mod-type-tag" data-i18n="modules.pensamiento_cientifico.type_label">Específica</span>
+                                <span class="quintil-badge q5">Q5</span>
+                            </div>
+                            <h4 class="mod-card-name" data-i18n="modules.pensamiento_cientifico.name">Pensamiento Científico - Matemáticas y Estadística</h4>
+                            <div class="mod-card-score">12.9</div>
+                            <div class="mod-card-meta">
+                                <span class="mod-card-diff positive" data-i18n="modules_quick.diff_scientific">+2,8 vs País (10,1)</span>
+                            </div>
+                        </article>
+
+                        <!-- 2. Inglés -->
+                        <article class="module-quick-card">
+                            <div class="mod-card-top">
+                                <span class="mod-type-tag" data-i18n="modules.ingles.type_label">Genérica</span>
+                                <div class="mod-badges-cluster">
+                                    <span class="level-badge">B2</span>
+                                    <span class="quintil-badge q4">Q4</span>
+                                </div>
+                            </div>
+                            <h4 class="mod-card-name" data-i18n="modules.ingles.name">Inglés</h4>
+                            <div class="mod-card-score">11.7</div>
+                            <div class="mod-card-meta">
+                                <span class="mod-card-diff positive" data-i18n="modules_quick.diff_english">Top 0,6% País (P99,4)</span>
+                            </div>
+                        </article>
+
+                        <!-- 3. Lectura Crítica -->
+                        <article class="module-quick-card">
+                            <div class="mod-card-top">
+                                <span class="mod-type-tag" data-i18n="modules.lectura_critica.type_label">Genérica</span>
+                                <span class="quintil-badge q5">Q5</span>
+                            </div>
+                            <h4 class="mod-card-name" data-i18n="modules.lectura_critica.name">Lectura Crítica</h4>
+                            <div class="mod-card-score">11.6</div>
+                            <div class="mod-card-meta">
+                                <span class="mod-card-diff positive" data-i18n="modules_quick.diff_critical">+1,1 vs País (10,5)</span>
+                            </div>
+                        </article>
+
+                        <!-- 4. Razonamiento Cuantitativo -->
+                        <article class="module-quick-card">
+                            <div class="mod-card-top">
+                                <span class="mod-type-tag" data-i18n="modules.razonamiento_cuantitativo.type_label">Genérica</span>
+                                <span class="quintil-badge q4">Q4</span>
+                            </div>
+                            <h4 class="mod-card-name" data-i18n="modules.razonamiento_cuantitativo.name">Razonamiento Cuantitativo</h4>
+                            <div class="mod-card-score">11.5</div>
+                            <div class="mod-card-meta">
+                                <span class="mod-card-diff positive" data-i18n="modules_quick.diff_quantitative">+1,4 vs País (10,1)</span>
+                            </div>
+                        </article>
+
+                        <!-- 5. Diseño de Sistemas Productivos y Logísticos -->
+                        <article class="module-quick-card">
+                            <div class="mod-card-top">
+                                <span class="mod-type-tag" data-i18n="modules.diseno_sistemas.type_label">Específica</span>
+                                <span class="quintil-badge q5">Q5</span>
+                            </div>
+                            <h4 class="mod-card-name" data-i18n="modules.diseno_sistemas.name">Diseño de Sistemas Productivos y Logísticos</h4>
+                            <div class="mod-card-score">11.1</div>
+                            <div class="mod-card-meta">
+                                <span class="mod-card-diff positive" data-i18n="modules_quick.diff_systems">+1,1 vs País (10,0)</span>
+                            </div>
+                        </article>
+
+                        <!-- 6. Competencias Ciudadanas -->
+                        <article class="module-quick-card">
+                            <div class="mod-card-top">
+                                <span class="mod-type-tag" data-i18n="modules.competencias_ciudadanas.type_label">Genérica</span>
+                                <span class="quintil-badge q4">Q4</span>
+                            </div>
+                            <h4 class="mod-card-name" data-i18n="modules.competencias_ciudadanas.name">Competencias Ciudadanas</h4>
+                            <div class="mod-card-score">10.6</div>
+                            <div class="mod-card-meta">
+                                <span class="mod-card-diff positive" data-i18n="modules_quick.diff_citizenship">+0,5 vs País (10,1)</span>
+                            </div>
+                        </article>
+
+                        <!-- 7. Formulación de Proyectos de Ingeniería -->
+                        <article class="module-quick-card">
+                            <div class="mod-card-top">
+                                <span class="mod-type-tag" data-i18n="modules.formulacion_proyectos.type_label">Específica</span>
+                                <span class="quintil-badge q3">Q3</span>
+                            </div>
+                            <h4 class="mod-card-name" data-i18n="modules.formulacion_proyectos.name">Formulación de Proyectos de Ingeniería</h4>
+                            <div class="mod-card-score">10.1</div>
+                            <div class="mod-card-meta">
+                                <span class="mod-card-diff positive" data-i18n="modules_quick.diff_projects">+0,1 vs País (10,0)</span>
+                            </div>
+                        </article>
+
+                        <!-- 8. Comunicación Escrita -->
+                        <article class="module-quick-card">
+                            <div class="mod-card-top">
+                                <span class="mod-type-tag" data-i18n="modules.comunicacion_escrita.type_label">Genérica</span>
+                                <div class="mod-badges-cluster">
+                                    <span class="level-badge" data-i18n="modules_quick.level_3">Nivel 3</span>
+                                    <span class="quintil-badge q1">Q1</span>
+                                </div>
+                            </div>
+                            <h4 class="mod-card-name" data-i18n="modules.comunicacion_escrita.name">Comunicación Escrita</h4>
+                            <div class="mod-card-score">9.2</div>
+                            <div class="mod-card-meta">
+                                <span class="mod-card-diff" data-i18n="modules_quick.eval_count">43.932 evaluados</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Concise Executive Summary (Placed AFTER Modules for Visual Readers) -->
                 <div class="hero-summary-box">
-                    <h3 class="summary-kicker" data-i18n="header.summary_kicker">Resumen de Desempeño</h3>
+                    <h3 class="summary-kicker" data-i18n="header.summary_kicker">Resumen Ejecutivo</h3>
                     <div class="hero-narrative">
                         <p data-i18n="header.narrative_p1">
-                            Consulta pública e independiente de los resultados del examen de Estado de educación superior SABER PRO 2015 (ICFES), presentado al finalizar el programa de Ingeniería Industrial de la Universidad ICESI.
-                        </p>
-                        <p data-i18n="header.narrative_p2">
-                            En la prueba de Inglés, el evaluado alcanzó el nivel B2 y se ubicó en el 0,6% de mejores resultados del país (percentil 99,4). Además, obtuvo desempeños superiores al promedio nacional en 7 de los 8 módulos evaluados (87,5%).
-                        </p>
-                        <p data-i18n="header.narrative_p3">
-                            De forma complementaria, sus resultados se ubicaron en los niveles de desempeño más altos del país (quintiles Q4 y Q5) en el 75% de las competencias transversales y específicas de ingeniería evaluadas.
+                            Evaluación oficial de Estado al culminar Ingeniería Industrial (Universidad ICESI). Destaca en el 0,6% superior nacional en Inglés (B2, percentil 99,4) y supera el promedio del país en el 87,5% de las pruebas evaluadas (7 de 8), alcanzando los quintiles más altos (Q4 y Q5) en el 75% de las competencias.
                         </p>
                     </div>
                     <div class="hero-chips-group">
@@ -107,42 +257,6 @@
                         <span class="hero-chip" data-i18n="header.chip_quintiles">75% en niveles más altos del país (Q4 y Q5)</span>
                         <span class="hero-chip" data-i18n="header.chip_institution">Universidad ICESI · Cali</span>
                     </div>
-                </div>
-            </div>
-
-            <!-- Key Performance Indicator Cards (Meta Dashboard KPI Grid) -->
-            <div class="stats-grid">
-                <div class="stat-card" id="card-mean">
-                    <div class="stat-card-header">
-                        <span class="stat-badge">Media Oficial</span>
-                    </div>
-                    <div class="stat-number">11.2</div>
-                    <div class="stat-label" data-i18n="stats.arithmetic_mean.title">Promedio General</div>
-                    <div class="stat-sublabel" data-i18n="stats.arithmetic_mean.subtitle">Media aritmética en escala 1 a 20 (8 módulos)</div>
-                </div>
-                <div class="stat-card" id="card-quintiles">
-                    <div class="stat-card-header">
-                        <span class="stat-badge">Referencia Ingeniería</span>
-                    </div>
-                    <div class="stat-number">6/8</div>
-                    <div class="stat-label" data-i18n="stats.high_quintiles.title">Quintiles Superiores</div>
-                    <div class="stat-sublabel" data-i18n="stats.high_quintiles.subtitle">75% en el 40% superior de ingeniería (Q4 y Q5)</div>
-                </div>
-                <div class="stat-card" id="card-above-nac">
-                    <div class="stat-card-header">
-                        <span class="stat-badge">Referente País</span>
-                    </div>
-                    <div class="stat-number">7/8</div>
-                    <div class="stat-label" data-i18n="stats.above_national.title">Sobre Promedio Nacional</div>
-                    <div class="stat-sublabel" data-i18n="stats.above_national.subtitle">87,5% de módulos superan la media del país (7 de 8)</div>
-                </div>
-                <div class="stat-card" id="card-top-performance">
-                    <div class="stat-card-header">
-                        <span class="stat-badge">Nivel Máximo</span>
-                    </div>
-                    <div class="stat-number">Q5</div>
-                    <div class="stat-label" data-i18n="stats.top_performance.title">Máximo Desempeño</div>
-                    <div class="stat-sublabel" data-i18n="stats.top_performance.subtitle">Ubicación en el 20% superior nacional en 3 módulos</div>
                 </div>
             </div>
 
