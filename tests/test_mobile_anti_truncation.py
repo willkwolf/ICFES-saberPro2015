@@ -146,6 +146,127 @@ class TestMobileAntiTruncationAndMECE(unittest.TestCase):
         self.assertIn("@media (max-width: 640px)", self.components_css, "Missing 640px mobile media query")
         self.assertIn("@media (max-width: 360px)", self.components_css, "Missing 360px small mobile media query")
 
+    def test_radar_chart_labels_anti_clipping(self):
+        """Verify that all radar chart labels have concise lines (<= 14 chars) preventing canvas edge clipping."""
+        charts_js = (REPO_ROOT / "js" / "charts.js").read_text(encoding="utf-8")
+        self.assertIn("function getModuleChartLabel", charts_js)
+
+        map_match = re.search(r"const labelsMap = ({[\s\S]+?\n  };)", charts_js)
+        self.assertIsNotNone(map_match, "labelsMap not found in js/charts.js")
+        raw_map = map_match.group(1)
+
+        required_modules = [
+            "comunicacion_escrita",
+            "razonamiento_cuantitativo",
+            "lectura_critica",
+            "competencias_ciudadanas",
+            "ingles",
+            "formulacion_proyectos",
+            "pensamiento_cientifico",
+            "diseno_sistemas",
+        ]
+        for mod_id in required_modules:
+            self.assertIn(mod_id, raw_map, f"Module {mod_id} missing from labelsMap")
+
+        # Check line length constraints for every label
+        lines_found = re.findall(r"['\"]([^'\"]+)['\"]", raw_map)
+        for line in lines_found:
+            if line in required_modules or line in ["es", "en"]:
+                continue
+            self.assertLessEqual(
+                len(line),
+                14,
+                f"Label line '{line}' exceeds 14 chars ({len(line)} chars) and risks canvas clipping on mobile",
+            )
+
+    def test_radar_chart_layout_padding_and_tooltips(self):
+        """Verify radar chart uses layout padding safety margins and full-name tooltip titles."""
+        charts_js = (REPO_ROOT / "js" / "charts.js").read_text(encoding="utf-8")
+
+        # Verify layout padding buffer
+        self.assertIn(
+            "padding: isMobile ? 16 : 22",
+            charts_js,
+            "Radar chart must configure layout padding buffer",
+        )
+
+        # Verify tooltip title callback displays full official module name
+        self.assertIn(
+            "title: function(context)",
+            charts_js,
+            "Tooltips must provide title callback for full module names",
+        )
+        self.assertIn(
+            "mod.name_en || mod.name_es",
+            charts_js,
+            "Tooltip title callback must support bilingual module names",
+        )
+
+        # Verify radar typography scaling
+        self.assertIn(
+            "font: { size: isMobile ? 9 : 11",
+            charts_js,
+            "Radar pointLabels font size must be responsive",
+        )
+        self.assertIn(
+            "padding: isMobile ? 4 : 8",
+            charts_js,
+            "Radar pointLabels padding must be responsive",
+        )
+
+    def test_radar_chart_responsive_css(self):
+        """Verify CSS contains responsive sizing for .chart-wrapper-radar and chart figure padding."""
+        # 1. Base height
+        radar_match = re.search(r"\.chart-wrapper-radar\s*\{([^}]+)\}", self.components_css)
+        self.assertIsNotNone(radar_match)
+        self.assertIn("height: 420px", radar_match.group(1))
+
+        # 2. 768px query
+        m768 = re.search(r"@media \(max-width:\s*768px\)\s*\{([\s\S]+?)\n\}", self.components_css)
+        self.assertIsNotNone(m768)
+        self.assertIn(".chart-wrapper-radar", m768.group(1))
+        self.assertIn("height: 380px", m768.group(1))
+
+        # 3. 640px query
+        m640 = re.search(r"@media \(max-width:\s*640px\)\s*\{([\s\S]+?)\n\}", self.components_css)
+        self.assertIsNotNone(m640)
+        self.assertIn(".chart-wrapper-radar", m640.group(1))
+        self.assertIn("height: 350px", m640.group(1))
+        self.assertIn("figure.chart-figure", m640.group(1))
+
+        # 4. 360px query
+        m360 = re.search(r"@media \(max-width:\s*360px\)\s*\{([\s\S]+?)\n\}", self.components_css)
+        self.assertIsNotNone(m360)
+        self.assertIn(".chart-wrapper-radar", m360.group(1))
+        self.assertIn("height: 310px", m360.group(1))
+        self.assertIn("figure.chart-figure", m360.group(1))
+
+    def test_full_site_bitstream_parity_with_docs(self):
+        """Verify all critical assets have exact bitstream parity between / and docs/."""
+        critical_files = [
+            ("index.html", "docs/index.html"),
+            ("css/accessibility.css", "docs/css/accessibility.css"),
+            ("css/components.css", "docs/css/components.css"),
+            ("css/layout.css", "docs/css/layout.css"),
+            ("css/typography.css", "docs/css/typography.css"),
+            ("css/variables.css", "docs/css/variables.css"),
+            ("js/app.js", "docs/js/app.js"),
+            ("js/charts.js", "docs/js/charts.js"),
+            ("js/i18n.js", "docs/js/i18n.js"),
+            ("locales/es.js", "docs/locales/es.js"),
+            ("locales/en.js", "docs/locales/en.js"),
+            ("data/saber_pro_2015.json", "docs/data/saber_pro_2015.json"),
+        ]
+        for src, dst in critical_files:
+            src_path = REPO_ROOT / src
+            dst_path = REPO_ROOT / dst
+            self.assertTrue(src_path.exists(), f"Source file missing: {src}")
+            self.assertTrue(dst_path.exists(), f"Target file missing: {dst}")
+            self.assertTrue(
+                filecmp.cmp(src_path, dst_path, shallow=False),
+                f"Bitstream mismatch between {src} and {dst}",
+            )
+
 
 if __name__ == "__main__":
     unittest.main()

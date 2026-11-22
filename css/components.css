@@ -226,6 +226,10 @@ figure.chart-figure {
   margin-block: 1rem;
 }
 
+.chart-wrapper-radar {
+  height: 420px;
+}
+
 canvas {
   max-width: 100%;
 }
@@ -234,10 +238,9 @@ canvas {
   .chart-wrapper {
     height: 320px;
   }
-}
-
-.chart-wrapper-radar {
-  height: 420px;
+  .chart-wrapper-radar {
+    height: 380px;
+  }
 }
 
 .chart-legend-custom {
@@ -653,9 +656,25 @@ table.data-table tbody tr:hover {
   .stat-number {
     font-size: 2rem;
   }
+
+  figure.chart-figure {
+    padding: 0.85rem 0.5rem;
+  }
+
+  .chart-wrapper-radar {
+    height: 350px;
+  }
 }
 
 @media (max-width: 360px) {
+  figure.chart-figure {
+    padding: 0.75rem 0.25rem;
+  }
+
+  .chart-wrapper-radar {
+    height: 310px;
+  }
+
   .hero-avatar {
     width: 44px;
     height: 44px;

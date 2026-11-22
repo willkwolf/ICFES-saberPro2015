@@ -56,6 +56,53 @@ function getThemeColors() {
 }
 
 /**
+ * Concise, non-truncating multi-line labels for charts (especially Radar and mobile Bar charts).
+ * Keeps max characters per line <= 13 so canvas boundaries never clip labels on narrow viewports.
+ * @param {object} module - Module data object
+ * @param {string} lang - 'es' | 'en'
+ * @param {boolean} isMobile - Whether the viewport is mobile (< 640px)
+ * @returns {string|string[]}
+ */
+export function getModuleChartLabel(module, lang = 'es', isMobile = false) {
+  const labelsMap = {
+    es: {
+      comunicacion_escrita: ['Comunicación', 'Escrita'],
+      razonamiento_cuantitativo: ['Razonamiento', 'Cuantitativo'],
+      lectura_critica: ['Lectura', 'Crítica'],
+      competencias_ciudadanas: ['Competencias', 'Ciudadanas'],
+      ingles: 'Inglés',
+      formulacion_proyectos: ['Formulación', 'de Proyectos'],
+      pensamiento_cientifico: ['Pensamiento', 'Científico'],
+      diseno_sistemas: ['Diseño de', 'Sistemas']
+    },
+    en: {
+      comunicacion_escrita: ['Written', 'Comm.'],
+      razonamiento_cuantitativo: ['Quantitative', 'Reasoning'],
+      lectura_critica: ['Critical', 'Reading'],
+      competencias_ciudadanas: ['Citizenship', 'Comp.'],
+      ingles: 'English',
+      formulacion_proyectos: ['Project', 'Formulation'],
+      pensamiento_cientifico: ['Scientific', 'Thinking'],
+      diseno_sistemas: ['Systems', 'Design']
+    }
+  };
+
+  const lMap = labelsMap[lang] || labelsMap.es;
+  if (module && module.id && lMap[module.id]) {
+    return lMap[module.id];
+  }
+
+  const name = lang === 'en' ? (module.name_en || module.name_es) : module.name_es;
+  if (isMobile) {
+    const words = name.split(' ');
+    if (words.length > 2) {
+      return [words.slice(0, 2).join(' '), words.slice(2).join(' ')];
+    }
+  }
+  return name;
+}
+
+/**
  * 1. Grouped Bar Comparison Chart (Maximizing Data-Ink Ratio)
  * @param {object} dataset - Canonical dataset
  * @param {string} lang - 'es' or 'en'
@@ -81,17 +128,7 @@ export function initComparisonChart(dataset, lang = 'es', filter = 'all') {
   const colors = getThemeColors();
 
   // Multi-line labels for mobile vertical charts or single-line for horizontal
-  const labels = modules.map(m => {
-    const name = lang === 'en' ? (m.name_en || m.name_es) : m.name_es;
-    if (isMobile) {
-      const words = name.split(' ');
-      if (words.length > 2) {
-        return [words.slice(0, 2).join(' '), words.slice(2).join(' ')];
-      }
-      return name;
-    }
-    return name;
-  });
+  const labels = modules.map(m => isMobile ? getModuleChartLabel(m, lang, isMobile) : (lang === 'en' ? (m.name_en || m.name_es) : m.name_es));
 
   const individualScores = modules.map(m => m.individual_score);
   const refMeans = modules.map(m => m.reference_group.mean);
@@ -160,6 +197,13 @@ export function initComparisonChart(dataset, lang = 'es', filter = 'all') {
           titleFont: { size: 12, weight: 'bold' },
           bodyFont: { size: 12 },
           callbacks: {
+            title: function(context) {
+              if (!context || !context.length) return '';
+              const index = context[0].dataIndex;
+              const mod = modules[index];
+              if (!mod) return '';
+              return lang === 'en' ? (mod.name_en || mod.name_es) : mod.name_es;
+            },
             label: function(ctx) {
               const val = ctx.parsed.y !== null && ctx.parsed.y !== undefined ? ctx.parsed.y : ctx.parsed.x;
               const formatted = i18n.formatScore ? i18n.formatScore(val, lang) : val.toFixed(1);
@@ -350,14 +394,7 @@ export function initRadarChart(dataset, lang = 'es') {
   const colors = getThemeColors();
   const modules = dataset.modules || [];
 
-  const labels = modules.map(m => {
-    const name = lang === 'en' ? (m.name_en || m.name_es) : m.name_es;
-    const words = name.split(' ');
-    if (words.length > 2) {
-      return [words.slice(0, 2).join(' '), words.slice(2).join(' ')];
-    }
-    return name;
-  });
+  const labels = modules.map(m => getModuleChartLabel(m, lang, isMobile));
 
   const indScores = modules.map(m => m.individual_score);
   const refScores = modules.map(m => m.reference_group.mean);
@@ -399,13 +436,16 @@ export function initRadarChart(dataset, lang = 'es') {
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      layout: {
+        padding: isMobile ? 16 : 22
+      },
       plugins: {
         legend: {
           display: true,
           position: 'top',
           labels: {
             color: colors.textColor,
-            font: { size: isMobile ? 11 : 12, weight: '600' },
+            font: { size: isMobile ? 10 : 12, weight: '600' },
             boxWidth: 10,
             boxHeight: 10,
             usePointStyle: true
@@ -416,6 +456,13 @@ export function initRadarChart(dataset, lang = 'es') {
           padding: 10,
           cornerRadius: 4,
           callbacks: {
+            title: function(context) {
+              if (!context || !context.length) return '';
+              const index = context[0].dataIndex;
+              const mod = modules[index];
+              if (!mod) return '';
+              return lang === 'en' ? (mod.name_en || mod.name_es) : mod.name_es;
+            },
             label: function(ctx) {
               const val = ctx.parsed.r;
               const formatted = i18n.formatScore ? i18n.formatScore(val, lang) : val.toFixed(1);
@@ -432,13 +479,14 @@ export function initRadarChart(dataset, lang = 'es') {
             stepSize: 1.0,
             color: colors.textMuted,
             backdropColor: 'transparent',
-            font: { size: isMobile ? 9 : 10 }
+            font: { size: isMobile ? 8 : 9.5 }
           },
           grid: { color: colors.gridColor, lineWidth: 1 },
           angleLines: { color: colors.gridColor, lineWidth: 1 },
           pointLabels: {
             color: colors.textColor,
-            font: { size: isMobile ? 10 : 11, weight: '600' }
+            font: { size: isMobile ? 9 : 11, weight: '600', family: "'Inter', sans-serif" },
+            padding: isMobile ? 4 : 8
           }
         }
       }
@@ -508,6 +556,7 @@ export function renderAllCharts(dataset, lang = 'es') {
 }
 
 export default {
+  getModuleChartLabel,
   initComparisonChart,
   initBellCurveChart,
   initRadarChart,
