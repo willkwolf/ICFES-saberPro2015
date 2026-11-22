@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-22T04:23:53.788317+00:00",
+  "timestamp": "2026-11-22T04:49:30.017133+00:00",
   "overall_verdict": "PASS",
   "rules": {
     "RULE-01-SOURCE-PARITY": {
@@ -28,7 +28,7 @@
     },
     "RULE-07-HYGIENE-PII-GUARD": {
       "status": "PASS",
-      "details": "Repository hygiene verified: Scanned 42 text files across root, docs/, data/, assets/, and scripts/. Zero occurrences of Colombian National ID detected. PII redaction strictly enforced; candidate registration EK201532097061 preserved as public reference."
+      "details": "Repository hygiene verified: Scanned 43 text files across root, docs/, data/, assets/, and scripts/. Zero occurrences of Colombian National ID detected. PII redaction strictly enforced; candidate registration EK201532097061 preserved as public reference."
     },
     "RULE-08-LINK-INTEGRITY": {
       "status": "PASS",

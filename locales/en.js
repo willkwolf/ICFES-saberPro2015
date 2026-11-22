@@ -88,14 +88,14 @@ const en = {
     },
     "high_quintiles": {
       "title": "Top Quintiles",
-      "subtitle": "Modules in Quintiles 4-5 (Top 40%)",
+      "subtitle": "75% in top 40% of engineering cohort (Q4 & Q5)",
       "value": "6/8",
       "badge": "75.0% of modules",
       "description": "6 out of 8 modules place in the top 40% of the Engineering reference group."
     },
     "above_national": {
       "title": "Above National Mean",
-      "subtitle": "Modules exceeding country average",
+      "subtitle": "87.5% of modules surpass national baseline (7 of 8)",
       "value": "7/8",
       "badge": "87.5% of modules",
       "description": "Individual score exceeds the national average in 7 out of 8 evaluated modules."
@@ -106,6 +106,13 @@ const en = {
       "value": "7/8",
       "badge": "87.5% of modules",
       "description": "Individual score exceeds the reference group average in 7 out of 8 evaluated modules."
+    },
+    "top_performance": {
+      "title": "Peak Performance",
+      "subtitle": "Top 20% nationally achieved across 3 modules (Q5)",
+      "value": "Q5",
+      "badge": "Top Level",
+      "description": "Attained Quintile 5 (top 20% nationally) in Scientific Thinking (12.9), Critical Reading (11.6), and Systems Design (11.1)."
     }
   },
   "modules": {

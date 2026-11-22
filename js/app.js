@@ -96,7 +96,7 @@ function updateStaticTranslations(lang) {
     const key = el.getAttribute('data-i18n');
     if (key) {
       const translated = i18n.t(key, null, lang);
-      if (translated && typeof translated === 'string') {
+      if (translated && typeof translated === 'string' && translated !== key) {
         el.textContent = translated;
       }
     }

@@ -88,14 +88,14 @@ const es = {
     },
     "high_quintiles": {
       "title": "Quintiles Superiores",
-      "subtitle": "Módulos en Quintiles 4-5 (Top 40%)",
+      "subtitle": "75% en el 40% superior de ingeniería (Q4 y Q5)",
       "value": "6/8",
       "badge": "75,0% de las pruebas",
       "description": "6 de los 8 módulos se ubican en el 40% superior del grupo de referencia de Ingeniería."
     },
     "above_national": {
       "title": "Sobre Promedio Nacional",
-      "subtitle": "Módulos superiores a la media país",
+      "subtitle": "87,5% de módulos superan la media del país (7 de 8)",
       "value": "7/8",
       "badge": "87,5% de las pruebas",
       "description": "El puntaje individual supera el promedio nacional en 7 de los 8 módulos evaluados."
@@ -106,6 +106,13 @@ const es = {
       "value": "7/8",
       "badge": "87,5% de las pruebas",
       "description": "El puntaje individual supera el promedio del grupo de referencia en 7 de los 8 módulos evaluados."
+    },
+    "top_performance": {
+      "title": "Máximo Desempeño",
+      "subtitle": "Ubicación en el 20% superior nacional en 3 módulos",
+      "value": "Q5",
+      "badge": "Nivel Máximo",
+      "description": "Alcanzó el Quintil 5 (20% superior nacional) en Pensamiento Científico (12,9), Lectura Crítica (11,6) y Diseño de Sistemas (11,1)."
     }
   },
   "modules": {
