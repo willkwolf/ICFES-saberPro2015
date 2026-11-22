@@ -7,7 +7,7 @@
 
 ## 1. Metadatos de la Ejecución y Entorno de Verificación
 
-- **Fecha y Hora de Auditoría (UTC)**: `2026-11-22T01:25:27.438023+00:00`
+- **Fecha y Hora de Auditoría (UTC)**: `2026-11-22T02:03:47.785356+00:00`
 - **Veredicto Global**: **`PASS`** (8 de 8 reglas satisfechas)
 - **Candidato Evaluado**: `ARTUNDUAGA VIANA WILLIAM CAMILO`
 - **Código de Registro ICFES**: `EK201532097061`
@@ -33,7 +33,7 @@
 | `RULE-05-TABLE-CHART-PARITY` | **Paridad Tabla - Gráfico** | Cero deriva entre tablas HTML, arrays Chart.js y JSON | ✅ **PASS** | Zero-drift parity confirmed between data tables, Chart.js visual arrays, and canonical JSON across all 8 modules (8 table rows, 3 Chart datasets: scores, ref means, nac means). |
 | `RULE-06-POPULATION-BOUNDS` | **Límites Poblacionales** | N_ref <= N_nac y documentación de divergencia TyT Inglés | ✅ **PASS** | Population bounds strictly satisfied (N_ref <= N_nac) across all 8 modules. English national sample divergence (N_nac=310,468 vs standard undergraduate cohort N=216,501, +93,967 students) audited and formally documented as historical anomaly A-04 (joint administration with Saber TyT technical cohort). |
 | `RULE-07-HYGIENE-PII-GUARD` | **Guarda de Privacidad PII** | 0 apariciones de Cédula de Ciudadanía en archivos de texto | ✅ **PASS** | Repository hygiene verified: Scanned 27 text files across root, docs/, data/, assets/, and scripts/. Zero occurrences of Colombian National ID detected. PII redaction strictly enforced; candidate registration EK201532097061 preserved as public reference. |
-| `RULE-08-LINK-INTEGRITY` | **Integridad de Enlaces** | 0 enlaces rotos o dominios de plantilla (TU_USUARIO) | ✅ **PASS** | Link integrity verified: 40 references validated across 7 documents. 100% of internal links resolve to valid disk assets. Zero broken links and zero placeholder domains detected. |
+| `RULE-08-LINK-INTEGRITY` | **Integridad de Enlaces** | 0 enlaces rotos o dominios de plantilla (TU_USUARIO) | ✅ **PASS** | Link integrity verified: 42 references validated across 7 documents. 100% of internal links resolve to valid disk assets. Zero broken links and zero placeholder domains detected. |
 
 ---
 

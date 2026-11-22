@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-22T01:25:27.438023+00:00",
+  "timestamp": "2026-11-22T02:03:47.785356+00:00",
   "overall_verdict": "PASS",
   "rules": {
     "RULE-01-SOURCE-PARITY": {
@@ -32,7 +32,7 @@
     },
     "RULE-08-LINK-INTEGRITY": {
       "status": "PASS",
-      "details": "Link integrity verified: 40 references validated across 7 documents. 100% of internal links resolve to valid disk assets. Zero broken links and zero placeholder domains detected."
+      "details": "Link integrity verified: 42 references validated across 7 documents. 100% of internal links resolve to valid disk assets. Zero broken links and zero placeholder domains detected."
     }
   }
 }
