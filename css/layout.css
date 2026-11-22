@@ -57,6 +57,14 @@ header.site-header {
   gap: 0.5rem;
 }
 
+.header-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1rem;
+  margin-top: 0.75rem;
+}
+
 nav.main-nav {
   background-color: var(--bg-surface);
   border-bottom: 1px solid var(--border-subtle);
@@ -69,10 +77,15 @@ nav.main-nav {
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   overflow-x: auto;
   padding-block: 0.5rem;
-  scrollbar-width: thin;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-container::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-links {
@@ -111,7 +124,7 @@ section.page-section {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: clamp(1.25rem, 2.5vw, 2rem);
+  padding: clamp(1rem, 2.5vw, 1.85rem);
   margin-bottom: 2rem;
   box-shadow: var(--card-shadow);
 }

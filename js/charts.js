@@ -1,11 +1,15 @@
 /**
- * ICFES Saber Pro 2015 - Data Visualization Suite
- * ===============================================
- * Production-ready, accessible Chart.js 4.4.x visualizations:
- * 1. Grouped Bar Comparison Chart (with responsive mobile horizontal layout)
- * 2. Standard Normal Bell Curve (mu=10, sigma=1 with z-scores)
- * 3. Radar Competency Profile (8 dimensions vs reference group)
- * 4. Visual Quintile Scale
+ * ICFES Saber Pro 2015 - Data Visualization Suite (Tufte & Kaizen Enhanced)
+ * ==========================================================================
+ * Production-ready, accessible Chart.js 4.4.x visualizations adhering to Edward Tufte's
+ * principles of high data-to-ink ratio, elimination of chartjunk, honest scaling,
+ * direct labeling, and mobile-first ergonomic responsiveness.
+ *
+ * Visualizations:
+ * 1. Grouped Bar Comparison Chart (Modular Scores vs. Reference & National Benchmarks)
+ * 2. Standard Normal Bell Curve (Theoretical Gaussian Density \mu=10, \sigma=1 with candidate z-scores)
+ * 3. Radar Competency Profile (8-dimensional polygon comparison)
+ * 4. Proportional Quintile Scale
  */
 
 import i18n from './i18n.js';
@@ -17,8 +21,15 @@ const chartInstances = {
   radar: null
 };
 
+// Global Chart.js typography configuration using the international sans-serif stack
+if (typeof Chart !== 'undefined' && Chart.defaults) {
+  Chart.defaults.font.family = "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'";
+  Chart.defaults.font.size = 11;
+  Chart.defaults.color = '#334155';
+}
+
 /**
- * Helper to get active theme colors
+ * Helper to get active theme colors and quiet gridline ink levels (Tufte principle)
  * @returns {object}
  */
 function getThemeColors() {
@@ -28,7 +39,8 @@ function getThemeColors() {
 
   return {
     textColor: isDark ? '#f8fafc' : '#1e293b',
-    gridColor: isDark ? 'rgba(51, 65, 85, 0.4)' : 'rgba(226, 232, 240, 0.8)',
+    textMuted: isDark ? '#94a3b8' : '#64748b',
+    gridColor: isDark ? 'rgba(255, 255, 255, 0.06)' : 'rgba(15, 23, 42, 0.05)',
     indBg: isDark ? '#818cf8' : '#4338ca',
     indBorder: isDark ? '#6366f1' : '#312e81',
     refBg: isDark ? '#38bdf8' : '#0284c7',
@@ -39,7 +51,7 @@ function getThemeColors() {
 }
 
 /**
- * 1. Grouped Bar Comparison Chart
+ * 1. Grouped Bar Comparison Chart (Maximizing Data-Ink Ratio)
  * @param {object} dataset - Canonical dataset
  * @param {string} lang - 'es' or 'en'
  * @param {string} filter - 'all', 'generic', or 'specific'
@@ -67,7 +79,6 @@ export function initComparisonChart(dataset, lang = 'es', filter = 'all') {
   const labels = modules.map(m => {
     const name = lang === 'en' ? (m.name_en || m.name_es) : m.name_es;
     if (isMobile) {
-      // Split words into array for multi-line rendering on mobile
       const words = name.split(' ');
       if (words.length > 2) {
         return [words.slice(0, 2).join(' '), words.slice(2).join(' ')];
@@ -93,24 +104,24 @@ export function initComparisonChart(dataset, lang = 'es', filter = 'all') {
         data: individualScores,
         backgroundColor: colors.indBg,
         borderColor: colors.indBorder,
-        borderWidth: 2,
-        borderRadius: 4
+        borderWidth: 1,
+        borderRadius: 3
       },
       {
         label: labelRef,
         data: refMeans,
         backgroundColor: colors.refBg,
         borderColor: colors.refBorder,
-        borderWidth: 2,
-        borderRadius: 4
+        borderWidth: 1,
+        borderRadius: 3
       },
       {
         label: labelNac,
         data: nacMeans,
         backgroundColor: colors.nacBg,
         borderColor: colors.nacBorder,
-        borderWidth: 2,
-        borderRadius: 4
+        borderWidth: 1,
+        borderRadius: 3
       }
     ]
   };
@@ -121,21 +132,27 @@ export function initComparisonChart(dataset, lang = 'es', filter = 'all') {
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      categoryPercentage: isMobile ? 0.85 : 0.78,
+      barPercentage: 0.9,
       plugins: {
         legend: {
           display: true,
           position: 'top',
           labels: {
             color: colors.textColor,
-            font: { size: 12, weight: '600' },
-            padding: 15,
-            usePointStyle: true
+            font: { size: isMobile ? 11 : 12, weight: '600' },
+            padding: 12,
+            boxWidth: 12,
+            boxHeight: 12,
+            usePointStyle: true,
+            pointStyle: 'circle'
           }
         },
         tooltip: {
-          backgroundColor: 'rgba(15, 23, 42, 0.9)',
+          backgroundColor: 'rgba(15, 23, 42, 0.92)',
           padding: 10,
-          titleFont: { size: 13, weight: 'bold' },
+          cornerRadius: 4,
+          titleFont: { size: 12, weight: 'bold' },
           bodyFont: { size: 12 },
           callbacks: {
             label: function(ctx) {
@@ -148,7 +165,8 @@ export function initComparisonChart(dataset, lang = 'es', filter = 'all') {
       },
       scales: {
         x: {
-          grid: { color: colors.gridColor },
+          grid: { display: false },
+          border: { display: false },
           ticks: {
             color: colors.textColor,
             font: { size: isMobile ? 10 : 11 }
@@ -157,9 +175,11 @@ export function initComparisonChart(dataset, lang = 'es', filter = 'all') {
         y: {
           min: 8.0,
           max: 14.0,
-          grid: { color: colors.gridColor },
+          grid: { color: colors.gridColor, drawTicks: false },
+          border: { display: false },
           ticks: {
             color: colors.textColor,
+            font: { size: isMobile ? 10 : 11 },
             stepSize: 1.0,
             callback: function(v) {
               return i18n.formatScore ? i18n.formatScore(v, lang) : v.toFixed(1);
@@ -172,7 +192,7 @@ export function initComparisonChart(dataset, lang = 'es', filter = 'all') {
 }
 
 /**
- * 2. Standard Normal Bell Curve (\mu=10, \sigma=1)
+ * 2. Standard Normal Bell Curve (\mu=10, \sigma=1) - Tufte Clean Density Graphic
  * @param {object} dataset - Canonical dataset
  * @param {string} lang - 'es' or 'en'
  */
@@ -185,6 +205,7 @@ export function initBellCurveChart(dataset, lang = 'es') {
     chartInstances.bell = null;
   }
 
+  const isMobile = window.innerWidth < 640;
   const colors = getThemeColors();
 
   // Generate Normal distribution curve (\mu=10, \sigma=1) from 6.0 to 14.0
@@ -222,7 +243,7 @@ export function initBellCurveChart(dataset, lang = 'es') {
           label: curveLabel,
           data: points,
           borderColor: colors.refBg,
-          backgroundColor: 'rgba(2, 132, 199, 0.12)',
+          backgroundColor: 'rgba(2, 132, 199, 0.05)',
           fill: true,
           tension: 0.4,
           pointRadius: 0,
@@ -235,8 +256,8 @@ export function initBellCurveChart(dataset, lang = 'es') {
           backgroundColor: colors.indBg,
           borderColor: '#ffffff',
           borderWidth: 2,
-          pointRadius: 6,
-          pointHoverRadius: 9
+          pointRadius: isMobile ? 5 : 6,
+          pointHoverRadius: 8
         }
       ]
     },
@@ -249,13 +270,16 @@ export function initBellCurveChart(dataset, lang = 'es') {
           position: 'top',
           labels: {
             color: colors.textColor,
-            font: { size: 12, weight: '600' },
-            usePointStyle: true
+            font: { size: isMobile ? 11 : 12, weight: '600' },
+            usePointStyle: true,
+            boxWidth: 10,
+            boxHeight: 10
           }
         },
         tooltip: {
-          backgroundColor: 'rgba(15, 23, 42, 0.9)',
+          backgroundColor: 'rgba(15, 23, 42, 0.92)',
           padding: 10,
+          cornerRadius: 4,
           callbacks: {
             label: function(ctx) {
               const raw = ctx.raw;
@@ -274,23 +298,27 @@ export function initBellCurveChart(dataset, lang = 'es') {
           type: 'linear',
           min: 6.0,
           max: 14.0,
-          grid: { color: colors.gridColor },
+          grid: { color: colors.gridColor, drawTicks: false },
+          border: { display: false },
           ticks: {
             stepSize: 1.0,
             color: colors.textColor,
+            font: { size: isMobile ? 10 : 11 },
             callback: function(v) {
               const z = v - 10;
               const sign = z > 0 ? '+' : '';
-              return `${v} (${sign}${z}σ)`;
+              return v === 10 ? '10 (μ)' : `${v} (${sign}${z}σ)`;
             }
           }
         },
         y: {
           min: 0,
           max: 0.45,
-          grid: { color: colors.gridColor },
+          grid: { color: colors.gridColor, drawTicks: false },
+          border: { display: false },
           ticks: {
             color: colors.textColor,
+            font: { size: isMobile ? 9 : 10 },
             stepSize: 0.1
           }
         }
@@ -300,7 +328,7 @@ export function initBellCurveChart(dataset, lang = 'es') {
 }
 
 /**
- * 3. Radar Competency Profile (8 dimensions)
+ * 3. Radar Competency Profile (8 dimensions) - Low-Ink Transparent Overlay
  * @param {object} dataset - Canonical dataset
  * @param {string} lang - 'es' or 'en'
  */
@@ -313,6 +341,7 @@ export function initRadarChart(dataset, lang = 'es') {
     chartInstances.radar = null;
   }
 
+  const isMobile = window.innerWidth < 640;
   const colors = getThemeColors();
   const modules = dataset.modules || [];
 
@@ -339,22 +368,26 @@ export function initRadarChart(dataset, lang = 'es') {
         {
           label: labelInd,
           data: indScores,
-          backgroundColor: 'rgba(67, 56, 202, 0.25)',
+          backgroundColor: 'rgba(67, 56, 202, 0.16)',
           borderColor: colors.indBg,
           borderWidth: 2,
           pointBackgroundColor: colors.indBg,
           pointBorderColor: '#ffffff',
-          pointRadius: 4
+          pointBorderWidth: 1.5,
+          pointRadius: 4,
+          pointHoverRadius: 6
         },
         {
           label: labelRef,
           data: refScores,
-          backgroundColor: 'rgba(2, 132, 199, 0.2)',
+          backgroundColor: 'rgba(2, 132, 199, 0.10)',
           borderColor: colors.refBg,
           borderWidth: 2,
           pointBackgroundColor: colors.refBg,
           pointBorderColor: '#ffffff',
-          pointRadius: 4
+          pointBorderWidth: 1.5,
+          pointRadius: 4,
+          pointHoverRadius: 6
         }
       ]
     },
@@ -367,10 +400,16 @@ export function initRadarChart(dataset, lang = 'es') {
           position: 'top',
           labels: {
             color: colors.textColor,
-            font: { size: 12, weight: '600' }
+            font: { size: isMobile ? 11 : 12, weight: '600' },
+            boxWidth: 10,
+            boxHeight: 10,
+            usePointStyle: true
           }
         },
         tooltip: {
+          backgroundColor: 'rgba(15, 23, 42, 0.92)',
+          padding: 10,
+          cornerRadius: 4,
           callbacks: {
             label: function(ctx) {
               const val = ctx.parsed.r;
@@ -386,14 +425,15 @@ export function initRadarChart(dataset, lang = 'es') {
           max: 13.5,
           ticks: {
             stepSize: 1.0,
-            color: colors.textColor,
-            backdropColor: 'transparent'
+            color: colors.textMuted,
+            backdropColor: 'transparent',
+            font: { size: isMobile ? 9 : 10 }
           },
-          grid: { color: colors.gridColor },
-          angleLines: { color: colors.gridColor },
+          grid: { color: colors.gridColor, lineWidth: 1 },
+          angleLines: { color: colors.gridColor, lineWidth: 1 },
           pointLabels: {
             color: colors.textColor,
-            font: { size: 11, weight: '600' }
+            font: { size: isMobile ? 10 : 11, weight: '600' }
           }
         }
       }
@@ -402,7 +442,7 @@ export function initRadarChart(dataset, lang = 'es') {
 }
 
 /**
- * 4. Render Interactive Visual Quintile Scale
+ * 4. Render Interactive Visual Quintile Scale (Proportional & Tufte Aligned)
  * @param {object} dataset - Canonical dataset
  * @param {string} lang - 'es' or 'en'
  */

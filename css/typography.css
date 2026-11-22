@@ -1,64 +1,105 @@
 /**
- * ICFES Saber Pro 2015 - Typography Styles
- * ========================================
- * Fluid clamp() typography, readable line-lengths (max 65-75ch), and font hierarchies.
+ * ICFES Saber Pro 2015 - Typography Styles (Tufte & Kaizen Enhanced)
+ * ====================================================================
+ * International sans-serif typography stack with universal Unicode coverage.
+ * Fluid clamp() scale, tabular numerals, strict line-length ergonomic guards,
+ * and high data-to-ink typographic hierarchy.
  */
 
+:root {
+  /* International High-Legibility Sans-Serif Font Stack */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  font-family: var(--font-sans);
+  font-size: clamp(0.975rem, 0.925rem + 0.25vw, 1.125rem);
   line-height: 1.6;
   color: var(--text-primary);
   background-color: var(--bg-page);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* Heading Scale with Fluid Clamp */
+/* Tabular Numerals for Statistical and Data Integrity (Tufte Principle) */
+.stat-number,
+table.data-table td,
+table.data-table th,
+.anomaly-values,
+.quintil-badge,
+.scale-segment,
+.scale-markers,
+.num,
+time {
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "cv05" 1;
+}
+
+/* Heading Scale with Fluid Clamp & Refined Ink Weight */
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.2;
   letter-spacing: -0.02em;
   margin-block-start: 0;
-  margin-block-end: 0.75rem;
+  margin-block-end: 0.65rem;
 }
 
 h1 {
   font-size: clamp(1.75rem, 1.35rem + 2vw, 2.75rem);
   font-weight: 800;
   letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
 h2 {
-  font-size: clamp(1.35rem, 1.15rem + 1vw, 1.875rem);
-  border-bottom: 2px solid var(--border-subtle);
+  font-size: clamp(1.3rem, 1.1rem + 1vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  border-bottom: 1px solid var(--border-subtle);
   padding-bottom: 0.5rem;
   margin-top: 2rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
 h3 {
-  font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.375rem);
+  font-size: clamp(1.1rem, 1rem + 0.45vw, 1.35rem);
   font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Section Subtitles & Explanatory Prose */
+.section-description {
+  font-size: clamp(0.9rem, 0.85rem + 0.2vw, 1rem);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-block-start: 0;
+  margin-block-end: 1.25rem;
+  max-width: 68ch;
 }
 
 /* Body Text Line-Length Guard (60 - 75ch max for optimal reading ergonomics) */
-p, .prose, .methodological-note, .section-description {
+p, .prose, .methodological-note {
   max-width: 72ch;
   margin-block-start: 0;
   margin-block-end: 1rem;
 }
 
 .lead {
-  font-size: clamp(1.1rem, 1.05rem + 0.3vw, 1.25rem);
+  font-size: clamp(1.05rem, 1rem + 0.3vw, 1.25rem);
   color: var(--text-secondary);
-  line-height: 1.5;
+  font-weight: 500;
+  line-height: 1.45;
   max-width: 68ch;
+  margin-block-end: 0.35rem;
 }
 
 small, .text-small {
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   line-height: 1.4;
   color: var(--text-secondary);
 }
@@ -69,16 +110,28 @@ small, .text-small {
 
 /* Code & Data Monospace */
 code, kbd, samp, pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 0.9em;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  font-variant-numeric: tabular-nums;
 }
 
-/* Captions & Labels */
+/* Captions & Annotations (Tufte Integrated Labels) */
 caption, .chart-caption {
-  font-size: 0.925rem;
-  font-weight: 500;
-  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.45;
+  font-weight: 400;
+  color: var(--text-muted);
   text-align: left;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   max-width: 75ch;
+  display: block;
+}
+
+/* Micro-data Labels */
+.data-label-caps {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
