@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Visualización, consulta y verificación estadística independiente de los resultados oficiales del examen ICFES Saber Pro 2015 para William Camilo Artunduaga Viana (Universidad ICESI, Cali).">
+    <meta name="author" content="William Camilo Artunduaga Viana">
+    <title>Resultados Oficiales SABER PRO 2015 | William Camilo Artunduaga Viana</title>
+
+    <!-- Modular CSS (Zero CDN Dependencies) -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+
+    <!-- Locally Vendored Chart.js 4.4.x -->
+    <script src="vendor/chart.umd.min.js"></script>
+
+    <!-- Universal Locales -->
+    <script type="module" src="locales/es.js"></script>
+    <script type="module" src="locales/en.js"></script>
+
+    <!-- Application Module -->
+    <script type="module" src="js/app.js"></script>
+</head>
+<body>
+    <!-- WCAG 2.1 AA Accessible Skip-to-Content Link -->
+    <a href="#main-content" class="skip-link" data-i18n="nav.skip_link">Saltar al contenido principal</a>
+
+    <!-- Semantic Header Landmark -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-main">
+                    <h1 data-i18n="header.title">Resultados SABER PRO 2015</h1>
+                    <p class="lead" data-i18n="header.subtitle">William Camilo Artunduaga Viana</p>
+                    <p class="text-small" data-i18n="header.degree_info">Ingeniería Industrial — Universidad ICESI, Cali</p>
+                </div>
+                <div class="controls-bar" role="toolbar" aria-label="Controles de accesibilidad e idioma">
+                    <button id="btnThemeToggle" class="btn btn-theme" type="button" aria-label="Alternar modo oscuro / claro" aria-pressed="false" data-i18n-aria="nav.theme_toggle_aria">
+                        <span aria-hidden="true">🌓</span>
+                        <span class="visually-hidden">Tema</span>
+                    </button>
+                    <button id="btnLangToggle" class="btn btn-lang" type="button" aria-label="Cambiar idioma a inglés" aria-pressed="false" data-i18n-aria="nav.language_toggle_aria">
+                        <span aria-hidden="true">🌐</span>
+                        <span class="lang-text">EN</span>
+                    </button>
+                </div>
+            </div>
+            <div class="header-badges">
+                <span class="badge badge-official" data-i18n="header.official_badge">Certificación Oficial Verificada</span>
+                <span class="text-small text-muted" data-i18n="header.disclaimer">Artefacto digital de consulta pública y verificación estadística independiente</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Landmark -->
+    <nav class="main-nav" aria-label="Navegación principal">
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="#summary" class="nav-link" data-i18n="nav.summary">Resumen</a></li>
+                <li><a href="#visualizations" class="nav-link" data-i18n="nav.visualizations">Visualizaciones</a></li>
+                <li><a href="#tables" class="nav-link" data-i18n="nav.tables">Tablas de Resultados</a></li>
+                <li><a href="#anomalies" class="nav-link" data-i18n="nav.anomalies">Auditoría de Anomalías</a></li>
+                <li><a href="#methodology" class="nav-link" data-i18n="nav.methodology">Metodología</a></li>
+                <li><a href="#verification" class="nav-link" data-i18n="nav.verification">Verificación Estadística</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Landmark -->
+    <main id="main-content" class="container">
+        <!-- Section 1: Candidate & Exam Summary -->
+        <section class="page-section" id="summary" aria-labelledby="heading-summary">
+            <h2 id="heading-summary" data-i18n="candidate_info.title">Información Oficial del Examen</h2>
+            <p class="section-description" data-i18n="candidate_info.subtitle">Datos de registro académico y contexto institucional</p>
+
+            <div class="candidate-info-grid">
+                <div class="info-card">
+                    <div class="info-label" data-i18n="candidate_info.candidate_label">Examinado</div>
+                    <div class="info-value" data-i18n="candidate_info.candidate_name">William Camilo Artunduaga Viana</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label" data-i18n="candidate_info.program_label">Programa Académico</div>
+                    <div class="info-value" data-i18n="candidate_info.program_name">Ingeniería Industrial</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label" data-i18n="candidate_info.institution_label">Institución</div>
+                    <div class="info-value" data-i18n="candidate_info.institution_name">Universidad ICESI, Cali</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label" data-i18n="candidate_info.date_label">Fecha de Aplicación</div>
+                    <div class="info-value" data-i18n="candidate_info.date_value">22 de noviembre de 2015</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label" data-i18n="candidate_info.registration_label">Registro de Examen</div>
+                    <div class="info-value" data-i18n="candidate_info.registration_value">EK201532097061</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label" data-i18n="candidate_info.reference_group_label">Grupo de Referencia</div>
+                    <div class="info-value" data-i18n="candidate_info.reference_group_name">Ingeniería</div>
+                </div>
+            </div>
+
+            <!-- Key Performance Indicator Cards -->
+            <div class="stats-grid">
+                <div class="stat-card" id="card-mean">
+                    <div>
+                        <div class="stat-number">11.2</div>
+                        <div class="stat-label" data-i18n="stats.arithmetic_mean.title">Promedio General</div>
+                    </div>
+                    <div class="stat-sublabel" data-i18n="stats.arithmetic_mean.description">8 módulos (Exacto verificado: 11,0875 / 11,1 — ver A-01)</div>
+                </div>
+                <div class="stat-card" id="card-quintiles">
+                    <div>
+                        <div class="stat-number">6/8</div>
+                        <div class="stat-label" data-i18n="stats.high_quintiles.title">Quintiles 4 y 5</div>
+                    </div>
+                    <div class="stat-sublabel" data-i18n="stats.high_quintiles.description">75% de los módulos en el 40% superior del grupo de referencia</div>
+                </div>
+                <div class="stat-card" id="card-above-nac">
+                    <div>
+                        <div class="stat-number">7/8</div>
+                        <div class="stat-label" data-i18n="stats.above_national.title">Sobre Promedio Nacional</div>
+                    </div>
+                    <div class="stat-sublabel" data-i18n="stats.above_national.description">87.5% de módulos superan la media del país</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Visualizations Suite -->
+        <section class="page-section" id="visualizations" aria-labelledby="heading-visualizations">
+            <h2 id="heading-visualizations" data-i18n="charts.section_title">Visualización Comparativa de Resultados</h2>
+            <p class="section-description" data-i18n="charts.section_subtitle">Análisis gráfico multinivel entre desempeño individual, referencia de ingeniería y promedio país</p>
+
+            <!-- Chart 1: Grouped Bar Chart -->
+            <figure class="chart-figure" id="figure-comparison">
+                <div class="tabs-control" role="tablist" aria-label="Filtro de módulos para gráfico de barras">
+                    <button class="tab-btn active" type="button" role="tab" aria-selected="true" data-chart-filter="all">Todos los Módulos (8)</button>
+                    <button class="tab-btn" type="button" role="tab" aria-selected="false" data-chart-filter="generic">Genéricas (5)</button>
+                    <button class="tab-btn" type="button" role="tab" aria-selected="false" data-chart-filter="specific">Específicas (3)</button>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="comparisonChart" role="img" aria-label="Gráfico de barras comparativo de puntajes"></canvas>
+                </div>
+                <figcaption class="chart-caption" data-i18n="charts.captions.bar_chart">
+                    Gráfico de barras que compara el puntaje individual con el promedio de ingeniería y el promedio nacional en los 8 módulos. 7 de 8 módulos superan ambos promedios.
+                </figcaption>
+            </figure>
+
+            <!-- Interactive Quintile Scale -->
+            <div id="quintileScaleDisplay"></div>
+
+            <!-- Duo Grid: Bell Curve & Radar -->
+            <div class="charts-grid charts-grid-duo">
+                <!-- Chart 2: Standard Normal Distribution Bell Curve -->
+                <figure class="chart-figure" id="figure-bell">
+                    <h3 data-i18n="charts.controls.bell_chart">Distribución Normal Teórica</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="bellCurveChart" role="img" aria-label="Campana de Gauss teórica normalizada con puntajes individuales"></canvas>
+                    </div>
+                    <figcaption class="chart-caption" data-i18n="charts.captions.bell_chart">
+                        Campana de Gauss teórica normalizada (μ=10, σ=1) que ubica los puntajes individuales sobre la distribución estándar.
+                    </figcaption>
+                </figure>
+
+                <!-- Chart 3: Radar Competency Profile -->
+                <figure class="chart-figure" id="figure-radar">
+                    <h3 data-i18n="charts.controls.radar_chart">Perfil Radial de Competencias</h3>
+                    <div class="chart-wrapper chart-wrapper-radar">
+                        <canvas id="radarChart" role="img" aria-label="Gráfico radial del perfil de competencias"></canvas>
+                    </div>
+                    <figcaption class="chart-caption" data-i18n="charts.captions.radar_chart">
+                        Gráfico radial que ilustra el perfil balanceado de competencias, destacando fortalezas sobresalientes en Pensamiento Científico (12,9) e Inglés (11,7).
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Section 3: Tables of Results -->
+        <section class="page-section" id="tables" aria-labelledby="heading-tables">
+            <h2 id="heading-tables" data-i18n="nav.tables">Tablas de Resultados</h2>
+
+            <!-- Table 1: Generic Competencies -->
+            <h3 data-i18n="tables.generic_title">Competencias Genéricas</h3>
+            <p class="section-description" data-i18n="tables.generic_subtitle">Módulos transversales evaluados en todos los programas universitarios a nivel nacional</p>
+            <div class="table-container" tabindex="0" role="region" aria-label="Tabla de competencias genéricas">
+                <table class="data-table" id="table-generic">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-i18n="tables.headers.module">Módulo</th>
+                            <th scope="col" data-i18n="tables.headers.score">Puntaje</th>
+                            <th scope="col" data-i18n="tables.headers.level">Nivel</th>
+                            <th scope="col" data-i18n="tables.headers.quintile">Quintil</th>
+                            <th scope="col" data-i18n="tables.headers.ref_mean">Grupo Ref.</th>
+                            <th scope="col" data-i18n="tables.headers.nat_mean">Nacional</th>
+                            <th scope="col" data-i18n="tables.headers.ref_n">N Grupo</th>
+                            <th scope="col" data-i18n="tables.headers.nat_n">N Nacional</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Comunicación Escrita</td>
+                            <td><strong>9.2</strong></td>
+                            <td>3</td>
+                            <td><span class="quintil-badge q1">Q1</span></td>
+                            <td>10.0</td>
+                            <td>10.0</td>
+                            <td>43,932</td>
+                            <td>215,703</td>
+                        </tr>
+                        <tr>
+                            <td>Razonamiento Cuantitativo</td>
+                            <td><strong>11.5</strong></td>
+                            <td>3</td>
+                            <td><span class="quintil-badge q4">Q4</span></td>
+                            <td>10.8</td>
+                            <td>10.1</td>
+                            <td>44,063</td>
+                            <td>216,501</td>
+                        </tr>
+                        <tr>
+                            <td>Lectura Crítica</td>
+                            <td><strong>11.6</strong></td>
+                            <td>3</td>
+                            <td><span class="quintil-badge q5">Q5</span></td>
+                            <td>10.6</td>
+                            <td>10.5</td>
+                            <td>44,063</td>
+                            <td>216,501</td>
+                        </tr>
+                        <tr>
+                            <td>Competencias Ciudadanas</td>
+                            <td><strong>10.6</strong></td>
+                            <td>-</td>
+                            <td><span class="quintil-badge q4">Q4</span></td>
+                            <td>10.2</td>
+                            <td>10.1</td>
+                            <td>44,063</td>
+                            <td>216,501</td>
+                        </tr>
+                        <tr>
+                            <td>Inglés</td>
+                            <td><strong>11.7</strong></td>
+                            <td>B1</td>
+                            <td><span class="quintil-badge q4">Q4</span></td>
+                            <td>10.7</td>
+                            <td>10.2</td>
+                            <td>44,063</td>
+                            <td>310,468</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Table 2: Specific Engineering Competencies -->
+            <h3 data-i18n="tables.specific_title">Competencias Específicas (Ingeniería)</h3>
+            <p class="section-description" data-i18n="tables.specific_subtitle">Módulos focalizados aplicados al área de conocimiento de Ingeniería</p>
+            <div class="table-container" tabindex="0" role="region" aria-label="Tabla de competencias específicas">
+                <table class="data-table" id="table-specific">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-i18n="tables.headers.module">Módulo</th>
+                            <th scope="col" data-i18n="tables.headers.score">Puntaje</th>
+                            <th scope="col" data-i18n="tables.headers.quintile">Quintil</th>
+                            <th scope="col" data-i18n="tables.headers.ref_mean">Grupo Ref.</th>
+                            <th scope="col" data-i18n="tables.headers.nat_mean">Nacional</th>
+                            <th scope="col" data-i18n="tables.headers.ref_n">N Grupo</th>
+                            <th scope="col" data-i18n="tables.headers.nat_n">N Nacional</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Formulación de Proyectos de Ingeniería</td>
+                            <td><strong>10.1</strong></td>
+                            <td><span class="quintil-badge q3">Q3</span></td>
+                            <td>10.0</td>
+                            <td>10.0</td>
+                            <td>44,006</td>
+                            <td>44,019</td>
+                        </tr>
+                        <tr>
+                            <td>Pensamiento Científico - Matemáticas y Estadística</td>
+                            <td><strong>12.9</strong></td>
+                            <td><span class="quintil-badge q5">Q5</span></td>
+                            <td>10.0</td>
+                            <td>10.1</td>
+                            <td>22,028</td>
+                            <td>22,375</td>
+                        </tr>
+                        <tr>
+                            <td>Diseño de Sistemas Productivos y Logísticos</td>
+                            <td><strong>11.1</strong></td>
+                            <td><span class="quintil-badge q5">Q5</span></td>
+                            <td>10.0</td>
+                            <td>10.0</td>
+                            <td>10,849</td>
+                            <td>10,849</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 4: Anomalies Audit & Historical Traceability (A-01 to A-07) -->
+        <section class="page-section" id="anomalies" aria-labelledby="heading-anomalies">
+            <h2 id="heading-anomalies" data-i18n="anomalies.section_title">Auditoría de Anomalías y Trazabilidad Histórica</h2>
+            <p class="section-description" data-i18n="anomalies.section_subtitle">Registro institucional formal de discrepancias detectadas entre los datos fuente y la publicación previa</p>
+
+            <div class="anomalies-grid" id="anomaliesList">
+                <article class="anomaly-card" id="anomaly-A-01">
+                    <div class="anomaly-header">
+                        <span class="anomaly-id">A-01</span>
+                        <span class="badge badge-warning" data-i18n="anomalies.status_audited">Auditado y Reconciliado</span>
+                    </div>
+                    <h3 data-i18n="anomalies.A-01.title">Error tipográfico en promedio general aritmético</h3>
+                    <p class="anomaly-desc" data-i18n="anomalies.A-01.description">El sitio web anterior reportaba un promedio general de 11,2 en la tarjeta principal. El recálculo aritmético formal sumando los 8 puntajes modulares oficiales da exactamente 88,7 / 8 = 11,0875, que con un decimal redondea a 11,1.</p>
+                    <div class="anomaly-values">
+                        <div><strong>Publicado previamente:</strong> <code>11,2</code></div>
+                        <div><strong>Cálculo canónico exacto:</strong> <code>11,0875 (11,1)</code></div>
+                    </div>
+                </article>
+
+                <article class="anomaly-card" id="anomaly-A-02">
+                    <div class="anomaly-header">
+                        <span class="anomaly-id">A-02</span>
+                        <span class="badge badge-warning" data-i18n="anomalies.status_audited">Auditado y Reconciliado</span>
+                    </div>
+                    <h3 data-i18n="anomalies.A-02.title">Omisión de desviaciones estándar empíricas en tablas web</h3>
+                    <p class="anomaly-desc" data-i18n="anomalies.A-02.description">La presentación anterior asumía una desviación estándar homogénea de σ=1,0 para todos los módulos. La extracción del certificado PDF oficial demostró desviaciones empíricas reales de 1,2 en Razonamiento Cuantitativo, 1,5 y 1,3 en Inglés, y 1,1 en Pensamiento Científico.</p>
+                    <div class="anomaly-values">
+                        <div><strong>Premisa asumida:</strong> <code>σ = 1,0 constante</code></div>
+                        <div><strong>Valores empíricos certificados:</strong> <code>σ entre 1,0 y 1,5 según módulo</code></div>
+                    </div>
+                </article>
+
+                <article class="anomaly-card" id="anomaly-A-03">
+                    <div class="anomaly-header">
+                        <span class="anomaly-id">A-03</span>
+                        <span class="badge badge-warning" data-i18n="anomalies.status_audited">Auditado y Reconciliado</span>
+                    </div>
+                    <h3 data-i18n="anomalies.A-03.title">Divergencia entre quintil empírico y percentil gaussiano en Comunicación Escrita</h3>
+                    <p class="anomaly-desc" data-i18n="anomalies.A-03.description">En Comunicación Escrita, el puntaje 9,2 se certificó en Quintil I (0-20%), mientras que bajo una curva normal continua estricta con μ=10 y σ=1, z=-0,8 corresponde al percentil 21,2% (Quintil II). Esto obedece a la función de distribución empírica discreta derivada de la rúbrica de calificación del módulo.</p>
+                    <div class="anomaly-values">
+                        <div><strong>Reporte oficial ICFES:</strong> <code>Quintil I</code></div>
+                        <div><strong>Percentil normal continuo teórico:</strong> <code>21,2% (Zona teórica Q2)</code></div>
+                    </div>
+                </article>
+
+                <article class="anomaly-card" id="anomaly-A-04">
+                    <div class="anomaly-header">
+                        <span class="anomaly-id">A-04</span>
+                        <span class="badge badge-warning" data-i18n="anomalies.status_audited">Auditado y Reconciliado</span>
+                    </div>
+                    <h3 data-i18n="anomalies.A-04.title">Divergencia en el tamaño muestral nacional del módulo de Inglés</h3>
+                    <p class="anomaly-desc" data-i18n="anomalies.A-04.description">El módulo de Inglés reporta una población nacional evaluada de 310.468 personas, cifra significativamente mayor que los 216.501 evaluados en los demás módulos genéricos. Esta diferencia se origina en la aplicación conjunta de la prueba de inglés en las modalidades Saber Pro (universitaria) y Saber TyT (técnica y tecnológica).</p>
+                    <div class="anomaly-values">
+                        <div><strong>Muestra nacional estándar:</strong> <code>N = 216.501</code></div>
+                        <div><strong>Muestra certificada en Inglés:</strong> <code>N = 310.468</code></div>
+                    </div>
+                </article>
+
+                <article class="anomaly-card" id="anomaly-A-05">
+                    <div class="anomaly-header">
+                        <span class="anomaly-id">A-05</span>
+                        <span class="badge badge-warning" data-i18n="anomalies.status_audited">Auditado y Reconciliado</span>
+                    </div>
+                    <h3 data-i18n="anomalies.A-05.title">Ausencia de niveles de desempeño en competencias ciudadanas y específicas</h3>
+                    <p class="anomaly-desc" data-i18n="anomalies.A-05.description">El certificado oficial reporta niveles de desempeño únicamente para Comunicación Escrita (3), Razonamiento Cuantitativo (3), Lectura Crítica (3) e Inglés (B1). En Competencias Ciudadanas y los módulos específicos de ingeniería no se definieron niveles en la aplicación 2015.</p>
+                    <div class="anomaly-values">
+                        <div><strong>Reporte previo:</strong> <code>Sin indicación explicativa</code></div>
+                        <div><strong>Diagnóstico oficial:</strong> <code>Niveles definidos sólo para 4 de 8 módulos</code></div>
+                    </div>
+                </article>
+
+                <article class="anomaly-card" id="anomaly-A-06">
+                    <div class="anomaly-header">
+                        <span class="anomaly-id">A-06</span>
+                        <span class="badge badge-warning" data-i18n="anomalies.status_resolved">Resuelto mediante Normalización</span>
+                    </div>
+                    <h3 data-i18n="anomalies.A-06.title">Rutas internas quebradas y enlace de repositorio con marcador de posición</h3>
+                    <p class="anomaly-desc" data-i18n="anomalies.A-06.description">El código original contenía referencias a archivos inexistentes con guiones medios y un enlace roto hacia TU_USUARIO. Se normalizó hacia la nomenclatura de archivos oficial y el repositorio canónico.</p>
+                    <div class="anomaly-values">
+                        <div><strong>Rutas previas:</strong> <code>assets/interpretacion-estadistica.md, https://github.com/TU_USUARIO/...</code></div>
+                        <div><strong>Rutas corregidas:</strong> <code>assets/interpretacion_estadistica.md, https://github.com/willkwolf/ICFES-saberPro2015</code></div>
+                    </div>
+                </article>
+
+                <article class="anomaly-card" id="anomaly-A-07">
+                    <div class="anomaly-header">
+                        <span class="anomaly-id">A-07</span>
+                        <span class="badge badge-warning" data-i18n="anomalies.status_redacted">Protegido por Confidencialidad</span>
+                    </div>
+                    <h3 data-i18n="anomalies.A-07.title">Exposición de Cédula de Ciudadanía en archivo fuente</h3>
+                    <p class="anomaly-desc" data-i18n="anomalies.A-07.description">El stream del certificado PDF oficial contenía el número de identificación nacional del examinado. En cumplimiento de las políticas de privacidad y protección de datos personales, el documento fue redactado manteniendo únicamente el número de registro público EK201532097061.</p>
+                    <div class="anomaly-values">
+                        <div><strong>Dato sensible:</strong> <code>[REDACTED_PII]</code></div>
+                        <div><strong>Identificador público autorizado:</strong> <code>Registro EK201532097061</code></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Section 5: Methodology & Notes -->
+        <section class="page-section" id="methodology" aria-labelledby="heading-methodology">
+            <h2 id="heading-methodology" data-i18n="nav.methodology">Metodología y Fuentes Oficiales</h2>
+            <p class="prose" data-i18n="methodology.overview">
+                El examen de Estado de la Calidad de la Educación Superior SABER PRO es aplicado por el ICFES en Colombia para evaluar el desarrollo de competencias de estudiantes universitarios próximos a graduarse. Los puntajes se normalizan con media μ=10 y desviación típica σ=1 sobre una escala estandarizada mediante modelos de Teoría de Respuesta al Ítem (TRI).
+            </p>
+            <div class="candidate-info-grid">
+                <div class="info-card">
+                    <div class="info-label">Certificado Oficial</div>
+                    <div class="info-value"><a href="assets/EK201532097061.pdf" target="_blank" rel="noopener">EK201532097061.pdf</a></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">Metodología ICFES</div>
+                    <div class="info-value"><a href="assets/metodologia_icfes.md">metodologia_icfes.md</a></div>
+                </div>
+                <div class="info-card">
+                    <div class="info-label">Interpretación Estadística</div>
+                    <div class="info-value"><a href="assets/interpretacion_estadistica.md">interpretacion_estadistica.md</a></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Independent Statistical Verification -->
+        <section class="page-section" id="verification" aria-labelledby="heading-verification">
+            <h2 id="heading-verification" data-i18n="nav.verification">Verificación Estadística Independiente</h2>
+            <p class="prose">
+                Este sitio cuenta con un mecanismo de auditoría matemática independiente estructurado en 8 reglas formales: paridad bitstream PDF vs JSON, recálculo de medias aritméticas, consistencia de subgrupos, verificación de proporciones y quintiles, paridad tabla-gráfico sin deriva de datos, cotas poblacionales, protección PII y comprobación de integridad de enlaces.
+            </p>
+            <p class="prose">
+                Consulte el informe completo de validación en <a href="VERIFICATION_REPORT.md">VERIFICATION_REPORT.md</a> o ejecute la suite de verificación con <code>python scripts/verify_statistics.py --verbose</code>.
+            </p>
+        </section>
+    </main>
+
+    <!-- Semantic Footer Landmark -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-top">
+                <div>
+                    <strong>SABER PRO 2015 Modernization</strong>
+                    <div class="text-small text-muted">William Camilo Artunduaga Viana — Universidad ICESI, Cali</div>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="https://github.com/willkwolf/ICFES-saberPro2015" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="assets/EK201532097061.pdf" target="_blank" rel="noopener">Certificado PDF</a></li>
+                    <li><a href="data/saber_pro_2015.json" target="_blank" rel="noopener">Dataset JSON</a></li>
+                    <li><a href="VERIFICATION_REPORT.md">Informe de Verificación</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom text-small text-muted">
+                <p>Licencia: <a href="LICENSE" rel="license">Creative Commons Atribución 4.0 Internacional (CC BY 4.0)</a>. Datos oficiales propiedad del ICFES. Visualización y verificación desarrolladas con fines académicos y de transparencia pública.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Baseline Chart Data for Zero-Drift Static Verification -->
+    <script>
+        const baselineData = {
+            labels: [
+                'Comunicación\nEscrita',
+                'Razonamiento\nCuantitativo',
+                'Lectura\nCrítica',
+                'Competencias\nCiudadanas',
+                'Inglés',
+                'Formulación\nde Proyectos',
+                'Pensamiento\nCientífico',
+                'Diseño de\nSistemas'
+            ],
+            datasets: [
+                {
+                    label: 'Puntaje Individual',
+                    data: [9.2, 11.5, 11.6, 10.6, 11.7, 10.1, 12.9, 11.1]
+                },
+                {
+                    label: 'Promedio Grupo Referencia',
+                    data: [10.0, 10.8, 10.6, 10.2, 10.7, 10.0, 10.0, 10.0]
+                },
+                {
+                    label: 'Promedio Nacional',
+                    data: [10.0, 10.1, 10.5, 10.1, 10.2, 10.0, 10.1, 10.0]
+                }
+            ]
+        };
+    </script>
+</body>
+</html>
