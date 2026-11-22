@@ -1,0 +1,92 @@
+/**
+ * ICFES Saber Pro 2015 - Accessibility (a11y) Utilities
+ * =====================================================
+ * WCAG 2.1 AA keyboard focus rings, skip-to-content links, and screen reader helpers.
+ */
+
+/* Skip to Content Link */
+.skip-link {
+  position: absolute;
+  top: -999px;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--color-primary-600);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.25);
+  transition: top 150ms ease-in-out;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 0;
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* High Contrast Focus-Visible Rings across all interactive elements */
+:focus-visible {
+  outline: 3px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* Fallback for browsers supporting :focus but not :focus-visible */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* Screen Reader Only Utility */
+.visually-hidden,
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Touch Target Accessibility (WCAG 2.5.8 Target Size Minimum) */
+button,
+a.nav-link,
+.tab-btn,
+.btn {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* High Contrast Media Query */
+@media (forced-colors: active) {
+  .badge,
+  .quintil-badge,
+  .stat-card,
+  button,
+  .btn {
+    border: 1px solid ButtonText;
+  }
+}

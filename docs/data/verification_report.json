@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-11-22T02:24:41.956117+00:00",
+  "overall_verdict": "PASS",
+  "rules": {
+    "RULE-01-SOURCE-PARITY": {
+      "status": "PASS",
+      "details": "Exact 100% bitstream parity confirmed across all 8 modules (scores, levels, quintiles, Ns, means, SDs) and metadata between PDF and JSON."
+    },
+    "RULE-02-CARD-ARITHMETIC": {
+      "status": "PASS",
+      "details": "Arithmetic mean recomputed: sum=88.7000, mean=11.0875 (rounds to 11.1). Historical anomaly A-01 audited: published legacy KPI card (11.2) formally reconciled against canonical mathematical value (11.0875)."
+    },
+    "RULE-03-SUBGROUP-MEANS": {
+      "status": "PASS",
+      "details": "Subgroup means verified: Generic competencies sum=54.6, mean=10.9200 (54.6/5=10.9200); Specific engineering competencies sum=34.1, mean=11.3667 (34.1/3=11.3667). Mean of sub-averages=11.1433."
+    },
+    "RULE-04-PROPORTION-CHECKS": {
+      "status": "PASS",
+      "details": "Proportions verified: High quintiles (Q4/Q5) = 6/8 (75.0%); Above national mean = 7/8 (87.5%, only Comunicación Escrita below); Above reference group mean = 7/8 (87.5%)."
+    },
+    "RULE-05-TABLE-CHART-PARITY": {
+      "status": "PASS",
+      "details": "Zero-drift parity confirmed between data tables, Chart.js visual arrays, and canonical JSON across all 8 modules (8 table rows, 3 Chart datasets: scores, ref means, nac means)."
+    },
+    "RULE-06-POPULATION-BOUNDS": {
+      "status": "PASS",
+      "details": "Population bounds strictly satisfied (N_ref <= N_nac) across all 8 modules. English national sample divergence (N_nac=310,468 vs standard undergraduate cohort N=216,501, +93,967 students) audited and formally documented as historical anomaly A-04 (joint administration with Saber TyT technical cohort)."
+    },
+    "RULE-07-HYGIENE-PII-GUARD": {
+      "status": "PASS",
+      "details": "Repository hygiene verified: Scanned 42 text files across root, docs/, data/, assets/, and scripts/. Zero occurrences of Colombian National ID detected. PII redaction strictly enforced; candidate registration EK201532097061 preserved as public reference."
+    },
+    "RULE-08-LINK-INTEGRITY": {
+      "status": "PASS",
+      "details": "Link integrity verified: 42 references validated across 7 documents. 100% of internal links resolve to valid disk assets. Zero broken links and zero placeholder domains detected."
+    }
+  }
+}
