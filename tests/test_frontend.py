@@ -359,5 +359,50 @@ class TestFrontendArchitecture(unittest.TestCase):
             )
 
 
+    # -------------------------------------------------------------------------
+    # 10. MOBILE 320PX RESPONSIVE & OVERFLOW PREVENTION RULES
+    # -------------------------------------------------------------------------
+    def test_mobile_320px_responsive_rules(self):
+        """Verify CSS rules preventing horizontal overflow on 320px viewports."""
+        comp_css = (self.css_dir / "components.css").read_text(encoding="utf-8")
+        layout_css = (self.css_dir / "layout.css").read_text(encoding="utf-8")
+
+        # figure.chart-figure and .chart-wrapper min-width / max-width
+        self.assertRegex(
+            comp_css,
+            r"figure\.chart-figure\s*\{[^}]*min-width:\s*0;[^}]*max-width:\s*100%;",
+            "figure.chart-figure must declare min-width: 0; max-width: 100% to prevent grid blow-out",
+        )
+        self.assertRegex(
+            comp_css,
+            r"\.chart-wrapper\s*\{[^}]*min-width:\s*0;[^}]*max-width:\s*100%;",
+            ".chart-wrapper must declare min-width: 0; max-width: 100% to prevent canvas overflow",
+        )
+        # canvas max-width
+        self.assertRegex(
+            comp_css,
+            r"canvas\s*\{[^}]*max-width:\s*100%;",
+            "canvas must declare max-width: 100% to prevent intrinsic size overflow",
+        )
+        # candidate-info-grid track sizing
+        self.assertIn(
+            "minmax(min(100%, 240px), 1fr)",
+            layout_css,
+            ".candidate-info-grid must use minmax(min(100%, 240px), 1fr) for narrow mobile viewports",
+        )
+
+    # -------------------------------------------------------------------------
+    # 11. MOBILE TABLE CARD I18N DATA-LABEL SPECIFICITY
+    # -------------------------------------------------------------------------
+    def test_mobile_table_card_i18n_specificity(self):
+        """Verify table.data-table td[data-label]::before uses !important to override ID fallbacks."""
+        comp_css = (self.css_dir / "components.css").read_text(encoding="utf-8")
+        self.assertRegex(
+            comp_css,
+            r"table\.data-table\s+td\[data-label\]::before\s*\{[^}]*content:\s*attr\(data-label\)\s*!important;",
+            "table.data-table td[data-label]::before must declare content: attr(data-label) !important",
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
