@@ -596,7 +596,9 @@ const en = {
     "entity": "Official source: ICFES — Colombian Institute for the Evaluation of Education",
     "rights": "Academic and professional dissemination. Verified official public data.",
     "license": "Content License: Creative Commons Attribution 4.0 International (CC BY 4.0)",
-    "repository": "GitHub Repository",
+    "repository": "Repository",
+    "methodology": "Methodology",
+    "data": "Data",
     "last_update": "Last updated: November 2026",
     "verification_passed": "Independent statistical verification: Verified"
   }

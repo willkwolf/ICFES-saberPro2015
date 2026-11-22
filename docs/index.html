@@ -61,7 +61,6 @@
                 <li><a href="#summary" class="nav-link" data-i18n="nav.summary">Resumen</a></li>
                 <li><a href="#visualizations" class="nav-link" data-i18n="nav.visualizations">Visualizaciones</a></li>
                 <li><a href="#tables" class="nav-link" data-i18n="nav.tables">Tablas de Resultados</a></li>
-                <li><a href="#methodology" class="nav-link" data-i18n="nav.methodology">Metodología</a></li>
             </ul>
         </div>
     </nav>
@@ -342,28 +341,6 @@
             </div>
         </section>
 
-        <!-- Section 4: Methodology & Sources -->
-        <section class="page-section" id="methodology" aria-labelledby="heading-methodology">
-            <h2 id="heading-methodology" data-i18n="nav.methodology">Metodología y Fuentes Oficiales</h2>
-            <p class="prose" data-i18n="methodology.overview">
-                El examen SABER PRO es la prueba de Estado estandarizada en Colombia para evaluar competencias en educación superior (ICFES). Los puntajes se expresan en una escala normalizada con media de 10 y desviación estándar de 1, calculados mediante modelos de Teoría de Respuesta al Ítem (TRI).
-            </p>
-            <div class="candidate-info-grid">
-                <div class="info-card">
-                    <div class="info-label">Certificado Oficial</div>
-                    <div class="info-value"><a href="assets/EK201532097061.pdf" target="_blank" rel="noopener">EK201532097061.pdf</a></div>
-                </div>
-                <div class="info-card">
-                    <div class="info-label">Metodología ICFES</div>
-                    <div class="info-value"><a href="assets/metodologia_icfes.md">metodologia_icfes.md</a></div>
-                </div>
-                <div class="info-card">
-                    <div class="info-label">Interpretación Estadística</div>
-                    <div class="info-value"><a href="assets/interpretacion_estadistica.md">interpretacion_estadistica.md</a></div>
-                </div>
-            </div>
-        </section>
-
         <!-- Metadatos técnicos estructurados (Verificación independiente automatizada) -->
         <div id="anomalies" class="visually-hidden" hidden aria-hidden="true" style="display:none;">
             <div id="anomaliesList">
@@ -381,20 +358,17 @@
     <!-- Semantic Footer Landmark -->
     <footer class="site-footer">
         <div class="container footer-content">
-            <div class="footer-top">
-                <div>
+            <div class="footer-simple">
+                <div class="footer-brand">
                     <strong>SABER PRO 2015 — William Camilo Artunduaga Viana</strong>
-                    <div class="text-small text-muted">Ingeniería Industrial — Universidad ICESI, Cali</div>
+                    <span class="footer-meta">Universidad ICESI · Cali · Registro <code>EK201532097061</code> · ICFES</span>
                 </div>
                 <ul class="footer-links">
-                    <li><a href="https://github.com/willkwolf/ICFES-saberPro2015" target="_blank" rel="noopener">GitHub</a></li>
-                    <li><a href="assets/EK201532097061.pdf" target="_blank" rel="noopener">Certificado PDF</a></li>
-                    <li><a href="data/saber_pro_2015.json" target="_blank" rel="noopener">Dataset JSON</a></li>
-                    <li><a href="VERIFICATION_REPORT.md">Informe de Verificación</a></li>
+                    <li><a href="https://github.com/willkwolf/ICFES-saberPro2015" target="_blank" rel="noopener" data-i18n="footer.repository">Repositorio</a></li>
+                    <li><a href="assets/metodologia_icfes.md" data-i18n="footer.methodology">Metodología</a></li>
+                    <li><a href="data/saber_pro_2015.json" target="_blank" rel="noopener" data-i18n="footer.data">Datos</a></li>
+                    <li><a href="LICENSE" rel="license">CC BY 4.0</a></li>
                 </ul>
-            </div>
-            <div class="footer-bottom text-small text-muted">
-                <p>Licencia: <a href="LICENSE" rel="license">Creative Commons Atribución 4.0 Internacional (CC BY 4.0)</a>. Datos oficiales propiedad del ICFES. Visualización y verificación estadística de consulta pública. Registro oficial: <code>EK201532097061</code>.</p>
             </div>
         </div>
     </footer>
