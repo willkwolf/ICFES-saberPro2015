@@ -52,6 +52,17 @@ export function createGenericRow(mod, lang = 'es') {
   const refN = i18n.formatCount ? i18n.formatCount(mod.reference_group.n, lang) : mod.reference_group.n.toLocaleString();
   const natN = i18n.formatCount ? i18n.formatCount(mod.national_group.n, lang) : mod.national_group.n.toLocaleString();
 
+  const delta = Number((mod.individual_score - mod.national_group.mean).toFixed(1));
+  const isPositive = delta > 0;
+  const deltaFormatted = (isPositive ? '+' : '') + (i18n.formatScore ? i18n.formatScore(delta, lang) : delta.toFixed(1));
+  const deltaBadge = isPositive
+    ? ` <span class="score-delta positive" title="${lang === 'en' ? 'Above national average' : 'Supera la media nacional'}">${deltaFormatted}</span>`
+    : '';
+
+  const levelMarkup = level !== '-' && level !== 'N/A'
+    ? `<span class="level-pill ${level.toLowerCase()}">${level}</span>`
+    : `<span class="text-muted">-</span>`;
+
   const labels = {
     mod: lang === 'en' ? 'Module' : 'Módulo',
     score: lang === 'en' ? 'Score' : 'Puntaje',
@@ -63,11 +74,11 @@ export function createGenericRow(mod, lang = 'es') {
     natN: lang === 'en' ? 'National Sample (N)' : 'Muestra Nacional (N)'
   };
 
-  return `<tr>
+  return `<tr class="table-row-${qClass}">
     <td data-label="${labels.mod}">${modName}</td>
-    <td data-label="${labels.score}"><strong>${score}</strong></td>
-    <td data-label="${labels.level}">${level}</td>
-    <td data-label="${labels.quintile}"><span class="quintil-badge ${qClass}">${qText}</span></td>
+    <td data-label="${labels.score}"><strong>${score}</strong>${deltaBadge}</td>
+    <td data-label="${labels.level}">${levelMarkup}</td>
+    <td data-label="${labels.quintile}" class="cell-quintil"><span class="quintil-badge ${qClass}">${qText}</span></td>
     <td data-label="${labels.refMean}">${refMean}</td>
     <td data-label="${labels.natMean}">${natMean}</td>
     <td data-label="${labels.refN}">${refN}</td>
@@ -91,6 +102,13 @@ export function createSpecificRow(mod, lang = 'es') {
   const refN = i18n.formatCount ? i18n.formatCount(mod.reference_group.n, lang) : mod.reference_group.n.toLocaleString();
   const natN = i18n.formatCount ? i18n.formatCount(mod.national_group.n, lang) : mod.national_group.n.toLocaleString();
 
+  const delta = Number((mod.individual_score - mod.national_group.mean).toFixed(1));
+  const isPositive = delta > 0;
+  const deltaFormatted = (isPositive ? '+' : '') + (i18n.formatScore ? i18n.formatScore(delta, lang) : delta.toFixed(1));
+  const deltaBadge = isPositive
+    ? ` <span class="score-delta positive" title="${lang === 'en' ? 'Above national average' : 'Supera la media nacional'}">${deltaFormatted}</span>`
+    : '';
+
   const labels = {
     mod: lang === 'en' ? 'Module' : 'Módulo',
     score: lang === 'en' ? 'Score' : 'Puntaje',
@@ -101,10 +119,10 @@ export function createSpecificRow(mod, lang = 'es') {
     natN: lang === 'en' ? 'National Sample (N)' : 'Muestra Nacional (N)'
   };
 
-  return `<tr>
+  return `<tr class="table-row-${qClass}">
     <td data-label="${labels.mod}">${modName}</td>
-    <td data-label="${labels.score}"><strong>${score}</strong></td>
-    <td data-label="${labels.quintile}"><span class="quintil-badge ${qClass}">${qText}</span></td>
+    <td data-label="${labels.score}"><strong>${score}</strong>${deltaBadge}</td>
+    <td data-label="${labels.quintile}" class="cell-quintil"><span class="quintil-badge ${qClass}">${qText}</span></td>
     <td data-label="${labels.refMean}">${refMean}</td>
     <td data-label="${labels.natMean}">${natMean}</td>
     <td data-label="${labels.refN}">${refN}</td>

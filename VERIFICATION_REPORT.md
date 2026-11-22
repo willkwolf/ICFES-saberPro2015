@@ -7,7 +7,7 @@
 
 ## 1. Metadatos de la Ejecución y Entorno de Verificación
 
-- **Fecha y Hora de Auditoría (UTC)**: `2026-11-22T05:40:55.711404+00:00`
+- **Fecha y Hora de Auditoría (UTC)**: `2026-11-22T06:08:38.479590+00:00`
 - **Veredicto Global**: **`PASS`** (8 de 8 reglas satisfechas)
 - **Candidato Evaluado**: `ARTUNDUAGA VIANA WILLIAM CAMILO`
 - **Código de Registro ICFES**: `EK201532097061`

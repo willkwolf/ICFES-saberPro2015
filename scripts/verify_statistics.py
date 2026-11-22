@@ -666,12 +666,12 @@ class StatisticalVerificationEngine:
         # Extract table rows
         # Generic table rows
         gen_rows = re.findall(
-            r"<tr>\s*<td>([^<]+)</td>\s*<td><strong>([\d\.]+)</strong></td>\s*<td>([^<]*)</td>\s*<td><span[^>]*>([^<]+)</span></td>\s*<td>([\d\.]+)</td>\s*<td>([\d\.]+)</td>\s*<td>([\d,]+)</td>\s*<td>([\d,]+)</td>\s*</tr>",
+            r"<tr[^>]*>\s*<td[^>]*>([^<]+)</td>\s*<td[^>]*><strong>([\d\.]+)</strong>(?:[^<]*<span[^>]*>[^<]*</span>)?</td>\s*<td[^>]*>(?:<span[^>]*>)?([^<]*)(?:</span>)?</td>\s*<td[^>]*><span[^>]*>([^<]+)</span></td>\s*<td[^>]*>([\d\.]+)</td>\s*<td[^>]*>([\d\.]+)</td>\s*<td[^>]*>([\d,]+)</td>\s*<td[^>]*>([\d,]+)</td>\s*</tr>",
             html_content,
         )
         # Specific table rows
         spec_rows = re.findall(
-            r"<tr>\s*<td>([^<]+)</td>\s*<td><strong>([\d\.]+)</strong></td>\s*<td><span[^>]*>([^<]+)</span></td>\s*<td>([\d\.]+)</td>\s*<td>([\d\.]+)</td>\s*<td>([\d,]+)</td>\s*<td>([\d,]+)</td>\s*</tr>",
+            r"<tr[^>]*>\s*<td[^>]*>([^<]+)</td>\s*<td[^>]*><strong>([\d\.]+)</strong>(?:[^<]*<span[^>]*>[^<]*</span>)?</td>\s*<td[^>]*><span[^>]*>([^<]+)</span></td>\s*<td[^>]*>([\d\.]+)</td>\s*<td[^>]*>([\d\.]+)</td>\s*<td[^>]*>([\d,]+)</td>\s*<td[^>]*>([\d,]+)</td>\s*</tr>",
             html_content,
         )
 
