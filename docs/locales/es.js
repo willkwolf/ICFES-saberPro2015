@@ -24,7 +24,7 @@ const es = {
     "skip_link": "Saltar al contenido principal",
     "summary": "Resumen",
     "visualizations": "Visualizaciones",
-    "tables": "Tablas de Resultados",
+    "tables": "Tabla de Resultados",
     "anomalies": "Auditoría de Anomalías",
     "methodology": "Metodología",
     "verification": "Verificación Estadística",
