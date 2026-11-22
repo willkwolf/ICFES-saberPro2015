@@ -391,6 +391,7 @@ const en = {
   "anomalies": {
     "section_title": "Historical Anomalies & Audit Traceability",
     "section_subtitle": "Formal institutional log of discrepancies detected between source data and prior publication",
+    "footnotes_title": "Technical and Statistical Footnotes (7)",
     "status_audited": "Audited & Reconciled",
     "status_resolved": "Resolved via Normalization",
     "status_redacted": "Protected by Privacy",

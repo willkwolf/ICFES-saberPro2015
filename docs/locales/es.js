@@ -391,6 +391,7 @@ const es = {
   "anomalies": {
     "section_title": "Auditoría de Anomalías y Trazabilidad Histórica",
     "section_subtitle": "Registro institucional formal de discrepancias detectadas entre los datos fuente y la publicación previa",
+    "footnotes_title": "Notas técnicas y observaciones estadísticas al pie (7)",
     "status_audited": "Auditado y Reconciliado",
     "status_resolved": "Resuelto mediante Normalización",
     "status_redacted": "Protegido por Confidencialidad",

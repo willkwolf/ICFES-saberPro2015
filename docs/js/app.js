@@ -176,17 +176,15 @@ function renderAnomalies(dataset, lang) {
     const impactLabel = lang === 'en' ? 'Impact:' : 'Diagnóstico:';
 
     return `
-      <article class="anomaly-card" id="anomaly-${a.id}">
-        <div class="anomaly-header">
-          <span class="anomaly-id">${a.id}</span>
-          <span class="badge badge-warning">${i18n.t('anomalies.status_audited', null, lang) || 'Auditado'}</span>
-        </div>
-        <h3>${title}</h3>
-        <p class="anomaly-desc">${desc}</p>
-        <div class="anomaly-values">
-          <div><strong>${legacyLabel}</strong> <code>${legacyVal}</code></div>
-          <div><strong>${canonicalLabel}</strong> <code>${canonicalVal}</code></div>
-          ${impact ? `<div><strong>${impactLabel}</strong> ${impact}</div>` : ''}
+      <article class="footnote-item" id="anomaly-${a.id}">
+        <span class="footnote-id">${a.id}</span>
+        <div class="footnote-body">
+          <h4 class="footnote-title">${title}</h4>
+          <p class="footnote-desc">${desc}</p>
+          <div class="footnote-meta text-muted">
+            <span><strong>${legacyLabel}</strong> <code>${legacyVal}</code></span> · 
+            <span><strong>${canonicalLabel}</strong> <code>${canonicalVal}</code></span>
+          </div>
         </div>
       </article>
     `;
