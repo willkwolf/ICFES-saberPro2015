@@ -490,7 +490,7 @@ table.data-table tbody tr:hover {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-primary-600), #4338ca);
+  background-color: var(--color-slate-800);
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -498,7 +498,7 @@ table.data-table tbody tr:hover {
   font-weight: 800;
   font-size: 1.25rem;
   flex-shrink: 0;
-  box-shadow: 0 2px 4px rgba(29, 78, 216, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
 .hero-title-row {
@@ -582,34 +582,12 @@ table.data-table tbody tr:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  border: 1px solid transparent;
+  background-color: var(--bg-surface-subtle);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
 }
 
-.chip-gold {
-  background-color: #fffbeb;
-  color: #b45309;
-  border-color: #fde68a;
-}
-
-.chip-green {
-  background-color: #ecfdf5;
-  color: #047857;
-  border-color: #a7f3d0;
-}
-
-.chip-blue {
-  background-color: #eff6ff;
-  color: #1d4ed8;
-  border-color: #bfdbfe;
-}
-
-.chip-purple {
-  background-color: #f5f3ff;
-  color: #6d28d9;
-  border-color: #ddd6fe;
-}
-
-/* KPI Card Header Badges */
+/* KPI Card Header Badges (Duotone) */
 .stat-card-header {
   display: flex;
   justify-content: flex-end;
@@ -619,45 +597,23 @@ table.data-table tbody tr:hover {
 .stat-badge {
   font-size: 0.75rem;
   font-weight: 700;
-  padding: 0.15rem 0.45rem;
+  padding: 0.15rem 0.5rem;
   border-radius: var(--radius-full);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  border: 1px solid transparent;
+  background-color: var(--bg-surface-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
 }
 
 .badge-verified {
-  background-color: #eff6ff;
-  color: #1d4ed8;
-  border-color: #bfdbfe;
+  background-color: var(--bg-surface-subtle);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
   font-size: 0.8rem;
   font-weight: 600;
   padding: 0.2rem 0.6rem;
   border-radius: var(--radius-full);
-}
-
-.badge-blue {
-  background-color: #eff6ff;
-  color: #1d4ed8;
-  border-color: #bfdbfe;
-}
-
-.badge-green {
-  background-color: #ecfdf5;
-  color: #047857;
-  border-color: #a7f3d0;
-}
-
-.badge-purple {
-  background-color: #f5f3ff;
-  color: #6d28d9;
-  border-color: #ddd6fe;
-}
-
-.badge-gold {
-  background-color: #fffbeb;
-  color: #b45309;
-  border-color: #fde68a;
 }
 
 /* Technical Footnotes Section (Internal Calibration Notes) */

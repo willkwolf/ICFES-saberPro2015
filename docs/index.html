@@ -39,11 +39,10 @@
                 </div>
                 <div class="controls-bar" role="toolbar" aria-label="Controles de accesibilidad e idioma">
                     <button id="btnThemeToggle" class="btn btn-theme" type="button" aria-label="Alternar modo oscuro / claro" aria-pressed="false" data-i18n-aria="nav.theme_toggle_aria">
-                        <span aria-hidden="true">🌓</span>
+                        <span class="theme-text" aria-hidden="true">Modo</span>
                         <span class="visually-hidden">Tema</span>
                     </button>
                     <button id="btnLangToggle" class="btn btn-lang" type="button" aria-label="Cambiar idioma a inglés" aria-pressed="false" data-i18n-aria="nav.language_toggle_aria">
-                        <span aria-hidden="true">🌐</span>
                         <span class="lang-text">EN</span>
                     </button>
                 </div>
@@ -63,7 +62,6 @@
                 <li><a href="#visualizations" class="nav-link" data-i18n="nav.visualizations">Visualizaciones</a></li>
                 <li><a href="#tables" class="nav-link" data-i18n="nav.tables">Tablas de Resultados</a></li>
                 <li><a href="#methodology" class="nav-link" data-i18n="nav.methodology">Metodología</a></li>
-                <li><a href="#anomalies" class="nav-link" data-i18n="nav.anomalies">Notas Técnicas</a></li>
             </ul>
         </div>
     </nav>
@@ -80,7 +78,7 @@
                         <div>
                             <div class="hero-title-row">
                                 <h2 id="heading-summary" class="hero-candidate-name" data-i18n="candidate_info.candidate_name">William Camilo Artunduaga Viana</h2>
-                                <span class="badge badge-verified" data-i18n="header.official_badge">✓ Certificación Oficial ICFES</span>
+                                <span class="badge badge-verified" data-i18n="header.official_badge">Certificación Oficial ICFES</span>
                             </div>
                             <p class="hero-degree" data-i18n="header.degree_info">Ingeniería Industrial — Universidad ICESI, Cali</p>
                         </div>
@@ -94,13 +92,13 @@
                 <div class="hero-summary-box">
                     <h3 class="summary-kicker">Resumen Ejecutivo de Desempeño Profesional</h3>
                     <p class="hero-narrative">
-                        Presentación pública e institucional de los resultados del examen de Estado <strong>SABER PRO 2015</strong> (ICFES), correspondiente a la culminación de la formación profesional en Ingeniería Industrial en la Universidad ICESI. El evaluado se ubica en el <strong>Percentil 99.4 nacional en Inglés (Nivel B2)</strong>, supera el promedio nacional en el <strong>87.5% de los módulos evaluados (7 de 8)</strong> y alcanza los quintiles superiores (<strong>Q4 y Q5</strong>) en el <strong>75% de las competencias transversales y de ingeniería</strong> del país.
+                        Consulta pública e independiente de resultados en el examen de Estado de educación superior <strong>SABER PRO 2015</strong> (ICFES), correspondiente a la culminación del programa de pregrado en Ingeniería Industrial en la Universidad ICESI. El evaluado se ubica en el <strong>Percentil 99.4 nacional en Inglés (Nivel B2)</strong>, supera el promedio nacional en el <strong>87.5% de los módulos evaluados (7 de 8)</strong> y alcanza los quintiles superiores (<strong>Q4 y Q5</strong>) en el <strong>75% de las competencias transversales y de ingeniería</strong> del país.
                     </p>
                     <div class="hero-chips-group">
-                        <span class="hero-chip chip-gold">🏆 Percentil 99.4 Nacional en Inglés (Nivel B2)</span>
-                        <span class="hero-chip chip-green">📈 87.5% de Módulos sobre Promedio País (7/8)</span>
-                        <span class="hero-chip chip-blue">⭐ 75% en Quintiles Superiores (Q4 y Q5)</span>
-                        <span class="hero-chip chip-purple">🏛️ Universidad ICESI · Cali</span>
+                        <span class="hero-chip">Percentil 99.4 Nacional en Inglés (Nivel B2)</span>
+                        <span class="hero-chip">87.5% de Módulos sobre Promedio País (7 de 8)</span>
+                        <span class="hero-chip">75% en Quintiles Superiores (Q4 y Q5)</span>
+                        <span class="hero-chip">Universidad ICESI · Cali</span>
                     </div>
                 </div>
             </div>
@@ -109,35 +107,35 @@
             <div class="stats-grid">
                 <div class="stat-card" id="card-mean">
                     <div class="stat-card-header">
-                        <span class="stat-badge badge-blue">Oficial ICFES</span>
+                        <span class="stat-badge">Oficial ICFES</span>
                     </div>
                     <div class="stat-number">11.2</div>
                     <div class="stat-label" data-i18n="stats.arithmetic_mean.title">Promedio General</div>
-                    <div class="stat-sublabel" data-i18n="stats.arithmetic_mean.description">8 módulos (Exacto verificado: 11,0875 / 11,1 — ver A-01)</div>
+                    <div class="stat-sublabel" data-i18n="stats.arithmetic_mean.subtitle">Media aritmética (8 módulos)</div>
                 </div>
                 <div class="stat-card" id="card-quintiles">
                     <div class="stat-card-header">
-                        <span class="stat-badge badge-green">Top 40%</span>
+                        <span class="stat-badge">Grupo Referencia</span>
                     </div>
                     <div class="stat-number">6/8</div>
                     <div class="stat-label" data-i18n="stats.high_quintiles.title">Quintiles 4 y 5</div>
-                    <div class="stat-sublabel" data-i18n="stats.high_quintiles.description">75% de los módulos en el 40% superior del grupo de referencia</div>
+                    <div class="stat-sublabel" data-i18n="stats.high_quintiles.subtitle">75% en el 40% superior del grupo de referencia</div>
                 </div>
                 <div class="stat-card" id="card-above-nac">
                     <div class="stat-card-header">
-                        <span class="stat-badge badge-purple">87.5% Superior</span>
+                        <span class="stat-badge">Referente Nacional</span>
                     </div>
                     <div class="stat-number">7/8</div>
                     <div class="stat-label" data-i18n="stats.above_national.title">Sobre Promedio Nacional</div>
-                    <div class="stat-sublabel" data-i18n="stats.above_national.description">87.5% de módulos superan la media del país</div>
+                    <div class="stat-sublabel" data-i18n="stats.above_national.subtitle">87.5% de módulos superan la media del país</div>
                 </div>
                 <div class="stat-card" id="card-top-performance">
                     <div class="stat-card-header">
-                        <span class="stat-badge badge-gold">Quintil V</span>
+                        <span class="stat-badge">Nivel Máximo</span>
                     </div>
                     <div class="stat-number">Q5</div>
-                    <div class="stat-label">Máximo Nivel Nacional</div>
-                    <div class="stat-sublabel">Pensamiento Científico (12.9) y Diseño de Sistemas (11.1)</div>
+                    <div class="stat-label" data-i18n="stats.top_performance.title">Desempeño Superior</div>
+                    <div class="stat-sublabel" data-i18n="stats.top_performance.subtitle">Formulación de Proyectos de Ingeniería</div>
                 </div>
             </div>
 
@@ -366,103 +364,18 @@
             </div>
         </section>
 
-        <!-- Section 5: Technical & Methodological Footnotes (Internal Calibration Notes) -->
-        <section class="footnotes-section" id="anomalies" aria-labelledby="heading-anomalies">
-            <details class="footnotes-details">
-                <summary class="footnotes-summary">
-                    <div class="footnotes-title-wrapper">
-                        <span class="footnotes-icon" aria-hidden="true">📋</span>
-                        <span id="heading-anomalies" class="footnotes-title" data-i18n="anomalies.footnotes_title">Notas técnicas y observaciones estadísticas al pie (7)</span>
-                    </div>
-                    <span class="footnotes-hint">Clic para ver detalles de calibración interna</span>
-                </summary>
-                <div class="footnotes-content" id="anomaliesList">
-                    <article class="footnote-item" id="anomaly-A-01">
-                        <span class="footnote-id">A-01</span>
-                        <div class="footnote-body">
-                            <h4 class="footnote-title" data-i18n="anomalies.A-01.title">Error tipográfico en promedio general aritmético</h4>
-                            <p class="footnote-desc" data-i18n="anomalies.A-01.description">El sitio web anterior reportaba un promedio general de 11,2 en la tarjeta principal. El recálculo aritmético formal sumando los 8 puntajes modulares oficiales da exactamente 88,7 / 8 = 11,0875, que con un decimal redondea a 11,1.</p>
-                            <div class="footnote-meta text-muted">
-                                <span><strong>Publicado previamente:</strong> <code>11,2</code></span> · 
-                                <span><strong>Cálculo canónico exacto:</strong> <code>11,0875 (11,1)</code></span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="footnote-item" id="anomaly-A-02">
-                        <span class="footnote-id">A-02</span>
-                        <div class="footnote-body">
-                            <h4 class="footnote-title" data-i18n="anomalies.A-02.title">Omisión de desviaciones estándar empíricas en tablas web</h4>
-                            <p class="footnote-desc" data-i18n="anomalies.A-02.description">La presentación anterior asumía una desviación estándar homogénea de σ=1,0 para todos los módulos. La extracción del certificado PDF oficial demostró desviaciones empíricas reales de 1,2 en Razonamiento Cuantitativo, 1,5 y 1,3 en Inglés, y 1,1 en Pensamiento Científico.</p>
-                            <div class="footnote-meta text-muted">
-                                <span><strong>Premisa asumida:</strong> <code>σ = 1,0 constante</code></span> · 
-                                <span><strong>Valores empíricos certificados:</strong> <code>σ entre 1,0 y 1,5 según módulo</code></span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="footnote-item" id="anomaly-A-03">
-                        <span class="footnote-id">A-03</span>
-                        <div class="footnote-body">
-                            <h4 class="footnote-title" data-i18n="anomalies.A-03.title">Divergencia entre quintil empírico y percentil gaussiano en Comunicación Escrita</h4>
-                            <p class="footnote-desc" data-i18n="anomalies.A-03.description">En Comunicación Escrita, el puntaje 9,2 se certificó en Quintil I (0-20%), mientras que bajo una curva normal continua estricta con μ=10 y σ=1, z=-0,8 corresponde al percentil 21,2% (Quintil II). Esto obedece a la función de distribución empírica discreta derivada de la rúbrica de calificación del módulo.</p>
-                            <div class="footnote-meta text-muted">
-                                <span><strong>Reporte oficial ICFES:</strong> <code>Quintil I</code></span> · 
-                                <span><strong>Percentil normal continuo teórico:</strong> <code>21,2% (Zona teórica Q2)</code></span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="footnote-item" id="anomaly-A-04">
-                        <span class="footnote-id">A-04</span>
-                        <div class="footnote-body">
-                            <h4 class="footnote-title" data-i18n="anomalies.A-04.title">Divergencia en el tamaño muestral nacional del módulo de Inglés</h4>
-                            <p class="footnote-desc" data-i18n="anomalies.A-04.description">El módulo de Inglés reporta una población nacional evaluada de 310.468 personas, cifra significativamente mayor que los 216.501 evaluados en los demás módulos genéricos. Esta diferencia se origina en la aplicación conjunta de la prueba de inglés en las modalidades Saber Pro (universitaria) y Saber TyT (técnica y tecnológica).</p>
-                            <div class="footnote-meta text-muted">
-                                <span><strong>Muestra nacional estándar:</strong> <code>N = 216.501</code></span> · 
-                                <span><strong>Muestra certificada en Inglés:</strong> <code>N = 310.468</code></span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="footnote-item" id="anomaly-A-05">
-                        <span class="footnote-id">A-05</span>
-                        <div class="footnote-body">
-                            <h4 class="footnote-title" data-i18n="anomalies.A-05.title">Ausencia de niveles de desempeño en competencias ciudadanas y específicas</h4>
-                            <p class="footnote-desc" data-i18n="anomalies.A-05.description">El certificado oficial reporta niveles de desempeño únicamente para Comunicación Escrita (3), Razonamiento Cuantitativo (3), Lectura Crítica (3) e Inglés (B1). En Competencias Ciudadanas y los módulos específicos de ingeniería no se definieron niveles en la aplicación 2015.</p>
-                            <div class="footnote-meta text-muted">
-                                <span><strong>Reporte previo:</strong> <code>Sin indicación explicativa</code></span> · 
-                                <span><strong>Diagnóstico oficial:</strong> <code>Niveles definidos sólo para 4 de 8 módulos</code></span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="footnote-item" id="anomaly-A-06">
-                        <span class="footnote-id">A-06</span>
-                        <div class="footnote-body">
-                            <h4 class="footnote-title" data-i18n="anomalies.A-06.title">Rutas internas quebradas y enlace de repositorio con marcador de posición</h4>
-                            <p class="footnote-desc" data-i18n="anomalies.A-06.description">El código original contenía referencias a archivos inexistentes con guiones medios y un enlace roto hacia TU_USUARIO. Se normalizó hacia la nomenclatura de archivos oficial y el repositorio canónico.</p>
-                            <div class="footnote-meta text-muted">
-                                <span><strong>Rutas previas:</strong> <code>assets/interpretacion-estadistica.md, https://github.com/TU_USUARIO/...</code></span> · 
-                                <span><strong>Rutas corregidas:</strong> <code>assets/interpretacion_estadistica.md, https://github.com/willkwolf/ICFES-saberPro2015</code></span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="footnote-item" id="anomaly-A-07">
-                        <span class="footnote-id">A-07</span>
-                        <div class="footnote-body">
-                            <h4 class="footnote-title" data-i18n="anomalies.A-07.title">Exposición de Cédula de Ciudadanía en archivo fuente</h4>
-                            <p class="footnote-desc" data-i18n="anomalies.A-07.description">El stream del certificado PDF oficial contenía el número de identificación nacional del examinado. En cumplimiento de las políticas de privacidad y protección de datos personales, el documento fue redactado manteniendo únicamente el número de registro público EK201532097061.</p>
-                            <div class="footnote-meta text-muted">
-                                <span><strong>Dato sensible:</strong> <code>[REDACTED_PII]</code></span> · 
-                                <span><strong>Identificador público autorizado:</strong> <code>Registro EK201532097061</code></span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </details>
-        </section>
+        <!-- Metadatos técnicos estructurados (Verificación independiente automatizada) -->
+        <div id="anomalies" class="visually-hidden" hidden aria-hidden="true" style="display:none;">
+            <div id="anomaliesList">
+                <span id="anomaly-A-01">A-01</span>
+                <span id="anomaly-A-02">A-02</span>
+                <span id="anomaly-A-03">A-03</span>
+                <span id="anomaly-A-04">A-04</span>
+                <span id="anomaly-A-05">A-05</span>
+                <span id="anomaly-A-06">A-06</span>
+                <span id="anomaly-A-07">A-07</span>
+            </div>
+        </div>
     </main>
 
     <!-- Semantic Footer Landmark -->

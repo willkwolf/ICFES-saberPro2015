@@ -62,26 +62,26 @@
   --card-shadow-hover: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
   --nav-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
 
-  /* Status Colors */
-  --status-success-bg: #ecfdf5;
-  --status-success-fg: #065f46; /* > 7:1 contrast */
-  --status-success-border: #a7f3d0;
+  /* Status Colors (Duotone Neutral Tone) */
+  --status-success-bg: #f1f5f9;
+  --status-success-fg: #0f172a;
+  --status-success-border: #cbd5e1;
   
-  --status-warning-bg: #fffbeb;
-  --status-warning-fg: #92400e; /* > 7:1 contrast */
-  --status-warning-border: #fde68a;
+  --status-warning-bg: #f1f5f9;
+  --status-warning-fg: #334155;
+  --status-warning-border: #cbd5e1;
 
-  --status-info-bg: #eff6ff;
-  --status-info-fg: #1e40af; /* > 7:1 contrast */
-  --status-info-border: #bfdbfe;
+  --status-info-bg: #f8fafc;
+  --status-info-fg: #1e293b;
+  --status-info-border: #e2e8f0;
 
-  /* Chart Colors */
-  --chart-individual: #4338ca;
-  --chart-individual-border: #312e81;
-  --chart-reference: #0284c7;
-  --chart-reference-border: #0369a1;
-  --chart-national: #475569;
-  --chart-national-border: #334155;
+  /* Chart Colors (Duotone: Slate-Navy Focus vs Neutral Slate Context) */
+  --chart-individual: #1e3a8a;
+  --chart-individual-border: #0f172a;
+  --chart-reference: #475569;
+  --chart-reference-border: #334155;
+  --chart-national: #94a3b8;
+  --chart-national-border: #64748b;
 
   /* Spacing Scale */
   --space-1: 0.25rem;
@@ -126,24 +126,24 @@
   --card-shadow-hover: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
   --nav-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
 
-  --status-success-bg: #064e3b;
-  --status-success-fg: #d1fae5;
-  --status-success-border: #059669;
+  --status-success-bg: #1e293b;
+  --status-success-fg: #f8fafc;
+  --status-success-border: #475569;
 
-  --status-warning-bg: #78350f;
-  --status-warning-fg: #fef3c7;
-  --status-warning-border: #d97706;
+  --status-warning-bg: #1e293b;
+  --status-warning-fg: #cbd5e1;
+  --status-warning-border: #475569;
 
-  --status-info-bg: #1e3a8a;
-  --status-info-fg: #dbeafe;
-  --status-info-border: #3b82f6;
+  --status-info-bg: #1e293b;
+  --status-info-fg: #e2e8f0;
+  --status-info-border: #475569;
 
-  --chart-individual: #818cf8;
-  --chart-individual-border: #6366f1;
-  --chart-reference: #38bdf8;
-  --chart-reference-border: #0ea5e9;
-  --chart-national: #94a3b8;
-  --chart-national-border: #64748b;
+  --chart-individual: #60a5fa;
+  --chart-individual-border: #3b82f6;
+  --chart-reference: #94a3b8;
+  --chart-reference-border: #cbd5e1;
+  --chart-national: #64748b;
+  --chart-national-border: #94a3b8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -169,23 +169,23 @@
     --card-shadow-hover: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
     --nav-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
 
-    --status-success-bg: #064e3b;
-    --status-success-fg: #d1fae5;
-    --status-success-border: #059669;
+    --status-success-bg: #1e293b;
+    --status-success-fg: #f8fafc;
+    --status-success-border: #475569;
 
-    --status-warning-bg: #78350f;
-    --status-warning-fg: #fef3c7;
-    --status-warning-border: #d97706;
+    --status-warning-bg: #1e293b;
+    --status-warning-fg: #cbd5e1;
+    --status-warning-border: #475569;
 
-    --status-info-bg: #1e3a8a;
-    --status-info-fg: #dbeafe;
-    --status-info-border: #3b82f6;
+    --status-info-bg: #1e293b;
+    --status-info-fg: #e2e8f0;
+    --status-info-border: #475569;
 
-    --chart-individual: #818cf8;
-    --chart-individual-border: #6366f1;
-    --chart-reference: #38bdf8;
-    --chart-reference-border: #0ea5e9;
-    --chart-national: #94a3b8;
-    --chart-national-border: #64748b;
+    --chart-individual: #60a5fa;
+    --chart-individual-border: #3b82f6;
+    --chart-reference: #94a3b8;
+    --chart-reference-border: #cbd5e1;
+    --chart-national: #64748b;
+    --chart-national-border: #94a3b8;
   }
 }
