@@ -38,7 +38,7 @@ const en = {
     "subtitle": "William Camilo Artunduaga Viana",
     "degree_info": "Industrial Engineering — ICESI University, Cali",
     "official_badge": "Verified Official Certification",
-    "disclaimer": "Public digital artifact for consultation and independent statistical verification"
+    "disclaimer": "Official public report of test results and institutional benchmarks"
   },
   "candidate_info": {
     "title": "Official Examination Information",
@@ -328,9 +328,9 @@ const en = {
   },
   "tables": {
     "generic_title": "Generic Competencies",
-    "generic_subtitle": "Transversal modules evaluated across all university programs nationally",
+    "generic_subtitle": "Cross-disciplinary modules evaluated across all higher education programs",
     "specific_title": "Specific Engineering Competencies",
-    "specific_subtitle": "Focused modules tailored to the Engineering discipline",
+    "specific_subtitle": "Specialized modules for Industrial Engineering programs",
     "headers": {
       "module": "Module",
       "score": "Individual Score",
@@ -360,8 +360,8 @@ const en = {
     "empty": "No records available to display."
   },
   "charts": {
-    "section_title": "Comparative Results Visualizations",
-    "section_subtitle": "Multi-level graphical comparison across individual scores, engineering reference, and national average",
+    "section_title": "Performance Comparison",
+    "section_subtitle": "Individual scores compared to engineering and national averages",
     "controls": {
       "view_selector": "Select chart view",
       "bar_chart": "Comparative Bar Chart",
@@ -378,9 +378,9 @@ const en = {
       "standard_deviation": "Standard Deviation (±1σ)"
     },
     "captions": {
-      "bar_chart": "Grouped bar chart comparing individual score against engineering and national means across all 8 modules. 7 of 8 modules exceed both averages.",
-      "radar_chart": "Radar chart illustrating a balanced competency profile, highlighting strengths in Scientific Thinking (12.9) and English (11.7).",
-      "bell_chart": "Theoretical normalized Gaussian bell curve (μ=10, σ=1) positioning individual scores along the standard normal distribution.",
+      "bar_chart": "Individual scores compared to engineering and national averages across all 8 modules. Seven of eight modules exceed both benchmarks.",
+      "radar_chart": "Balanced competency profile highlighting top performance in Scientific Thinking (12.9) and English (11.7).",
+      "bell_chart": "Individual scores mapped across the standardized theoretical normal curve (μ=10, σ=1).",
       "quintile_chart": "Quintile ranking diagram showing 6 out of 8 modules positioned in upper quintiles IV and V."
     },
     "axis": {
@@ -558,8 +558,9 @@ const en = {
     }
   },
   "methodology": {
-    "section_title": "Methodological Notes & Statistical Interpretation",
+    "section_title": "Methodology and Official Sources",
     "section_subtitle": "Psychometric foundations and analytical considerations on Saber Pro results",
+    "overview": "The SABER PRO examination is Colombia's standardized national assessment of higher education competencies, administered by ICFES. Scores are reported on a standardized scale with a mean of 10 and standard deviation of 1, calibrated using Item Response Theory (IRT) models.",
     "scoring_system": {
       "title": "Scoring System & Standardization",
       "p1": "Saber Pro examinations use psychometric models based on Item Response Theory (IRT). Modular scores are transformed onto a standardized scale with a theoretical national mean of 10.0 and a standard deviation of 1.0.",
@@ -586,11 +587,11 @@ const en = {
   "footer": {
     "official_notice": "Official Saber Pro 2015 Examination Results — Registration Code: EK201532097061",
     "entity": "Official source: ICFES — Colombian Institute for the Evaluation of Education",
-    "rights": "Academic and technical dissemination artifact. Verified official public data.",
+    "rights": "Academic and professional dissemination. Verified official public data.",
     "license": "Content License: Creative Commons Attribution 4.0 International (CC BY 4.0)",
     "repository": "GitHub Repository",
     "last_update": "Last updated: November 2026",
-    "verification_passed": "Independent statistical verification: 100% Passed"
+    "verification_passed": "Independent statistical verification: Verified"
   }
 };
 

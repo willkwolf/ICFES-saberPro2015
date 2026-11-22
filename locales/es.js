@@ -38,7 +38,7 @@ const es = {
     "subtitle": "William Camilo Artunduaga Viana",
     "degree_info": "Ingeniería Industrial — Universidad ICESI, Cali",
     "official_badge": "Certificación Oficial Verificada",
-    "disclaimer": "Artefacto digital de consulta pública y verificación estadística independiente"
+    "disclaimer": "Reporte público de resultados y desempeño institucional"
   },
   "candidate_info": {
     "title": "Información Oficial del Examen",
@@ -328,9 +328,9 @@ const es = {
   },
   "tables": {
     "generic_title": "Competencias Genéricas",
-    "generic_subtitle": "Módulos transversales evaluados en todos los programas universitarios a nivel nacional",
+    "generic_subtitle": "Pruebas transversales aplicadas a todos los programas de educación superior",
     "specific_title": "Competencias Específicas de Ingeniería",
-    "specific_subtitle": "Módulos focalizados aplicados al área de conocimiento de Ingeniería",
+    "specific_subtitle": "Pruebas especializadas del programa de Ingeniería Industrial",
     "headers": {
       "module": "Módulo",
       "score": "Puntaje Individual",
@@ -360,8 +360,8 @@ const es = {
     "empty": "No hay registros disponibles para mostrar."
   },
   "charts": {
-    "section_title": "Visualización Comparativa de Resultados",
-    "section_subtitle": "Análisis gráfico multinivel entre desempeño individual, referencia de ingeniería y promedio país",
+    "section_title": "Comparativa de Desempeño",
+    "section_subtitle": "Puntaje individual frente a los promedios de ingeniería y nacional",
     "controls": {
       "view_selector": "Seleccionar vista de gráfico",
       "bar_chart": "Gráfico de Barras Comparativo",
@@ -378,9 +378,9 @@ const es = {
       "standard_deviation": "Desviación Estándar (±1σ)"
     },
     "captions": {
-      "bar_chart": "Gráfico de barras que compara el puntaje individual con el promedio de ingeniería y el promedio nacional en los 8 módulos. 7 de 8 módulos superan ambos promedios.",
-      "radar_chart": "Gráfico radial que ilustra el perfil balanceado de competencias, destacando fortalezas sobresalientes en Pensamiento Científico (12,9) e Inglés (11,7).",
-      "bell_chart": "Campana de Gauss teórica normalizada (μ=10, σ=1) que ubica los puntajes individuales sobre la distribución estándar.",
+      "bar_chart": "Puntajes individuales comparados con el promedio de ingeniería y el promedio nacional. Siete de los ocho módulos superan ambos referentes.",
+      "radar_chart": "Perfil balanceado de competencias, con desempeños sobresalientes en Pensamiento Científico (12,9) e Inglés (11,7).",
+      "bell_chart": "Ubicación de los puntajes individuales sobre la distribución estándar normalizada (μ=10, σ=1).",
       "quintile_chart": "Diagrama de distribución por quintiles donde 6 de los 8 módulos se ubican en los quintiles superiores IV y V."
     },
     "axis": {
@@ -558,8 +558,9 @@ const es = {
     }
   },
   "methodology": {
-    "section_title": "Nota Metodológica e Interpretación Estadística",
+    "section_title": "Metodología y Fuentes Oficiales",
     "section_subtitle": "Fundamentos psicométricos y consideraciones analíticas sobre los resultados Saber Pro",
+    "overview": "El examen SABER PRO es la prueba de Estado estandarizada en Colombia para evaluar competencias en educación superior (ICFES). Los puntajes se expresan en una escala normalizada con media de 10 y desviación estándar de 1, calculados mediante modelos de Teoría de Respuesta al Ítem (TRI).",
     "scoring_system": {
       "title": "Sistema de Calificación y Estandarización",
       "p1": "Las pruebas Saber Pro utilizan modelos psicométricos basados en la Teoría de Respuesta al Ítem (TRI). Los puntajes de cada módulo se transforman a una escala estandarizada con media teórica nacional de 10,0 y desviación estándar de 1,0.",
@@ -586,11 +587,11 @@ const es = {
   "footer": {
     "official_notice": "Resultados Oficiales del Examen de Estado Saber Pro 2015 — Registro de Examen: EK201532097061",
     "entity": "Fuente oficial: ICFES — Instituto Colombiano para la Evaluación de la Educación",
-    "rights": "Artefacto de divulgación académica y técnica. Datos públicos oficiales verificados.",
+    "rights": "Divulgación académica y profesional. Datos públicos oficiales verificados.",
     "license": "Licencia de Contenido: Creative Commons Attribution 4.0 International (CC BY 4.0)",
     "repository": "Repositorio en GitHub",
     "last_update": "Última actualización: Noviembre 2026",
-    "verification_passed": "Verificación estadística independiente: 100% Aprobada"
+    "verification_passed": "Verificación estadística independiente: Conforme"
   }
 };
 

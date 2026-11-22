@@ -41,14 +41,17 @@ function getThemeColors() {
     isDark,
     textColor: isDark ? '#f8fafc' : '#0f172a',
     textMuted: isDark ? '#94a3b8' : '#475569',
-    gridColor: isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(15, 23, 42, 0.05)',
-    // Duotone: Slate-Navy (Focus) vs Slate Gray (Benchmarks)
-    indBg: isDark ? '#60a5fa' : '#1e3a8a',
-    indBorder: isDark ? '#93c5fd' : '#0f172a',
-    refBg: isDark ? '#94a3b8' : '#475569',
-    refBorder: isDark ? '#cbd5e1' : '#334155',
-    nacBg: isDark ? '#64748b' : '#94a3b8',
-    nacBorder: isDark ? '#94a3b8' : '#64748b'
+    gridColor: isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(15, 23, 42, 0.08)',
+    // High-Contrast Differentiated Colors:
+    // 1. Individual: Bold Royal Blue (Primary focus)
+    indBg: isDark ? '#60a5fa' : '#1d4ed8',
+    indBorder: isDark ? '#93c5fd' : '#1e40af',
+    // 2. Reference Group (Engineering / ICESI): Crisp Sky / Cyan
+    refBg: isDark ? '#38bdf8' : '#0284c7',
+    refBorder: isDark ? '#7dd3fc' : '#0369a1',
+    // 3. National Baseline: Distinct Neutral Slate / Charcoal
+    nacBg: isDark ? '#94a3b8' : '#475569',
+    nacBorder: isDark ? '#cbd5e1' : '#334155'
   };
 }
 
@@ -245,7 +248,7 @@ export function initBellCurveChart(dataset, lang = 'es') {
           label: curveLabel,
           data: points,
           borderColor: colors.refBg,
-          backgroundColor: colors.isDark ? 'rgba(96, 165, 250, 0.08)' : 'rgba(30, 58, 138, 0.05)',
+          backgroundColor: colors.isDark ? 'rgba(56, 189, 248, 0.12)' : 'rgba(2, 132, 199, 0.08)',
           fill: true,
           tension: 0.4,
           pointRadius: 0,
@@ -370,19 +373,19 @@ export function initRadarChart(dataset, lang = 'es') {
         {
           label: labelInd,
           data: indScores,
-          backgroundColor: colors.isDark ? 'rgba(96, 165, 250, 0.20)' : 'rgba(30, 58, 138, 0.14)',
+          backgroundColor: colors.isDark ? 'rgba(96, 165, 250, 0.25)' : 'rgba(29, 78, 216, 0.20)',
           borderColor: colors.indBg,
-          borderWidth: 2,
+          borderWidth: 2.5,
           pointBackgroundColor: colors.indBg,
           pointBorderColor: '#ffffff',
           pointBorderWidth: 1.5,
-          pointRadius: 4,
-          pointHoverRadius: 6
+          pointRadius: 4.5,
+          pointHoverRadius: 6.5
         },
         {
           label: labelRef,
           data: refScores,
-          backgroundColor: colors.isDark ? 'rgba(148, 163, 184, 0.08)' : 'rgba(71, 85, 105, 0.06)',
+          backgroundColor: colors.isDark ? 'rgba(56, 189, 248, 0.15)' : 'rgba(2, 132, 199, 0.12)',
           borderColor: colors.refBg,
           borderWidth: 2,
           pointBackgroundColor: colors.refBg,

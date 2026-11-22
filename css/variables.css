@@ -75,13 +75,13 @@
   --status-info-fg: #1e293b;
   --status-info-border: #e2e8f0;
 
-  /* Chart Colors (Duotone: Slate-Navy Focus vs Neutral Slate Context) */
-  --chart-individual: #1e3a8a;
-  --chart-individual-border: #0f172a;
-  --chart-reference: #475569;
-  --chart-reference-border: #334155;
-  --chart-national: #94a3b8;
-  --chart-national-border: #64748b;
+  /* Chart Colors (High-Contrast Differentiated Series) */
+  --chart-individual: #1d4ed8;
+  --chart-individual-border: #1e40af;
+  --chart-reference: #0284c7;
+  --chart-reference-border: #0369a1;
+  --chart-national: #475569;
+  --chart-national-border: #334155;
 
   /* Spacing Scale */
   --space-1: 0.25rem;
@@ -139,11 +139,11 @@
   --status-info-border: #475569;
 
   --chart-individual: #60a5fa;
-  --chart-individual-border: #3b82f6;
-  --chart-reference: #94a3b8;
-  --chart-reference-border: #cbd5e1;
-  --chart-national: #64748b;
-  --chart-national-border: #94a3b8;
+  --chart-individual-border: #93c5fd;
+  --chart-reference: #38bdf8;
+  --chart-reference-border: #7dd3fc;
+  --chart-national: #94a3b8;
+  --chart-national-border: #cbd5e1;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -182,10 +182,10 @@
     --status-info-border: #475569;
 
     --chart-individual: #60a5fa;
-    --chart-individual-border: #3b82f6;
-    --chart-reference: #94a3b8;
-    --chart-reference-border: #cbd5e1;
-    --chart-national: #64748b;
-    --chart-national-border: #94a3b8;
+    --chart-individual-border: #93c5fd;
+    --chart-reference: #38bdf8;
+    --chart-reference-border: #7dd3fc;
+    --chart-national: #94a3b8;
+    --chart-national-border: #cbd5e1;
   }
 }
