@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,8 +40,8 @@
                 </div>
                 <div class="controls-bar" role="toolbar" aria-label="Controles de accesibilidad e idioma">
                     <button id="btnThemeToggle" class="btn btn-theme" type="button" aria-label="Alternar modo oscuro / claro" aria-pressed="false" data-i18n-aria="nav.theme_toggle_aria">
-                        <span class="theme-text" aria-hidden="true">Modo</span>
-                        <span class="visually-hidden">Tema</span>
+                        <span class="theme-text" aria-hidden="true" data-i18n="nav.theme_mode">Modo</span>
+                        <span class="visually-hidden" data-i18n="nav.theme_aria">Tema</span>
                     </button>
                     <button id="btnLangToggle" class="btn btn-lang" type="button" aria-label="Cambiar idioma a inglés" aria-pressed="false" data-i18n-aria="nav.language_toggle_aria">
                         <span class="lang-text">EN</span>
@@ -74,7 +74,7 @@
                 <div class="stats-grid">
                     <div class="stat-card" id="card-mean" tabindex="0" title="Media aritmética oficial exacta 11.0875 (11.1). Auditada contra la fuente primaria.">
                         <div class="stat-card-header">
-                            <span class="stat-badge">🎯 Media Oficial</span>
+                            <span class="stat-badge" data-i18n="stats.badges.official_mean">🎯 Media Oficial</span>
                         </div>
                         <div class="stat-number">11.2</div>
                         <div class="stat-label" data-i18n="stats.arithmetic_mean.title">Promedio General</div>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="stat-card" id="card-quintiles" tabindex="0" title="75% de las pruebas (6 de 8) se sitúan en los dos quintiles más altos de ingeniería.">
                         <div class="stat-card-header">
-                            <span class="stat-badge">📊 Referencia Ingeniería</span>
+                            <span class="stat-badge" data-i18n="stats.badges.engineering_ref">📊 Referencia Ingeniería</span>
                         </div>
                         <div class="stat-number">6/8</div>
                         <div class="stat-label" data-i18n="stats.high_quintiles.title">Quintiles Superiores</div>
@@ -90,7 +90,7 @@
                     </div>
                     <div class="stat-card" id="card-above-nac" tabindex="0" title="87.5% de los módulos evaluados (7 de 8) superan la media de todos los evaluados del país.">
                         <div class="stat-card-header">
-                            <span class="stat-badge">🇨🇴 Referente País</span>
+                            <span class="stat-badge" data-i18n="stats.badges.national_ref">🇨🇴 Referente País</span>
                         </div>
                         <div class="stat-number">7/8</div>
                         <div class="stat-label" data-i18n="stats.above_national.title">Sobre Promedio Nacional</div>
@@ -98,7 +98,7 @@
                     </div>
                     <div class="stat-card" id="card-top-performance" tabindex="0" title="Ubicación en el Quintil 5 (20% superior nacional) en Pensamiento Científico, Diseño de Sistemas y Lectura Crítica.">
                         <div class="stat-card-header">
-                            <span class="stat-badge">🏆 Nivel Máximo</span>
+                            <span class="stat-badge" data-i18n="stats.badges.top_level">🏆 Nivel Máximo</span>
                         </div>
                         <div class="stat-number">Q5</div>
                         <div class="stat-label" data-i18n="stats.top_performance.title">Máximo Desempeño</div>
@@ -143,9 +143,9 @@
             <!-- Chart 1: Grouped Bar Chart -->
             <figure class="chart-figure" id="figure-comparison">
                 <div class="tabs-control" role="tablist" aria-label="Filtro de módulos para gráfico de barras">
-                    <button class="tab-btn active" type="button" role="tab" aria-selected="true" data-chart-filter="all">Todos los Módulos (8)</button>
-                    <button class="tab-btn" type="button" role="tab" aria-selected="false" data-chart-filter="generic">Genéricas (5)</button>
-                    <button class="tab-btn" type="button" role="tab" aria-selected="false" data-chart-filter="specific">Específicas (3)</button>
+                    <button class="tab-btn active" type="button" role="tab" aria-selected="true" data-chart-filter="all" data-i18n="charts.filters.all">Todos los Módulos (8)</button>
+                    <button class="tab-btn" type="button" role="tab" aria-selected="false" data-chart-filter="generic" data-i18n="charts.filters.generic">Genéricas (5)</button>
+                    <button class="tab-btn" type="button" role="tab" aria-selected="false" data-chart-filter="specific" data-i18n="charts.filters.specific">Específicas (3)</button>
                 </div>
                 <div class="chart-wrapper">
                     <canvas id="comparisonChart" role="img" aria-label="Gráfico de barras comparativo de puntajes"></canvas>
@@ -329,7 +329,7 @@
             <div class="footer-simple">
                 <div class="footer-brand">
                     <strong>ICFES Saber Pro 2015</strong>
-                    <span class="footer-meta">Registro: <code>EK201532097061</code> · Licencia de Código Abierto</span>
+                    <span class="footer-meta"><span data-i18n="candidate_info.registration_label">Registro</span>: <code>EK201532097061</code> · <span data-i18n="footer.open_source">Código Abierto</span></span>
                 </div>
                 <ul class="footer-links">
                     <li><a href="https://github.com/willkwolf/ICFES-saberPro2015" target="_blank" rel="noopener" data-i18n="footer.repository">Repositorio</a></li>

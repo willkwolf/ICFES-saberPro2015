@@ -31,7 +31,9 @@ const es = {
     "language": "Idioma",
     "language_toggle_aria": "Cambiar idioma a inglés",
     "current_lang_aria": "Idioma activo: Español",
-    "theme_toggle_aria": "Alternar modo oscuro / claro"
+    "theme_toggle_aria": "Alternar modo oscuro / claro",
+    "theme_mode": "Modo",
+    "theme_aria": "Tema"
   },
   "header": {
     "title": "Resultados Saber Pro",
@@ -84,6 +86,12 @@ const es = {
   "stats": {
     "section_title": "Indicadores Clave y Resumen Estadístico",
     "section_subtitle": "Métricas cuantitativas consolidadas a partir de las 8 pruebas modulares evaluadas",
+    "badges": {
+      "official_mean": "🎯 Media Oficial",
+      "engineering_ref": "📊 Referencia Ingeniería",
+      "national_ref": "🇨🇴 Referente País",
+      "top_level": "🏆 Nivel Máximo"
+    },
     "arithmetic_mean": {
       "title": "Promedio General",
       "subtitle": "Media aritmética (8 módulos)",
@@ -392,6 +400,11 @@ const es = {
   "charts": {
     "section_title": "Comparativa de Desempeño",
     "section_subtitle": "Puntaje individual frente a los promedios de ingeniería y nacional",
+    "filters": {
+      "all": "Todos los Módulos (8)",
+      "generic": "Genéricas (5)",
+      "specific": "Específicas (3)"
+    },
     "controls": {
       "view_selector": "Seleccionar vista de gráfico",
       "bar_chart": "Gráfico de Barras Comparativo",
@@ -623,7 +636,8 @@ const es = {
     "methodology": "Metodología",
     "data": "Datos",
     "last_update": "Última actualización: Noviembre 2026",
-    "verification_passed": "Verificación estadística independiente: Conforme"
+    "verification_passed": "Verificación estadística independiente: Conforme",
+    "open_source": "Código Abierto"
   }
 };
 

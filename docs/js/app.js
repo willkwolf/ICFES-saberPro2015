@@ -296,16 +296,19 @@ export function toggleTheme() {
  * Initialize application events and state
  */
 export async function initApp() {
-  // 1. Detect saved or system theme
+  // 1. Always initialize in light mode ("Siempre en modo claro")
+  document.documentElement.setAttribute('data-theme', 'light');
+  state.currentTheme = 'light';
   try {
-    const savedTheme = localStorage.getItem('saber_pro_theme');
-    if (savedTheme === 'dark' || savedTheme === 'light') {
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      state.currentTheme = savedTheme;
-    }
+    localStorage.setItem('saber_pro_theme', 'light');
   } catch (e) {}
 
-  // 2. Initialize i18n
+  const themeBtnInit = document.getElementById('btnThemeToggle');
+  if (themeBtnInit) {
+    themeBtnInit.setAttribute('aria-pressed', 'false');
+  }
+
+  // 2. Initialize i18n with auto-detection
   const initialLang = i18n.init ? i18n.init() : 'es';
   state.currentLang = initialLang;
 

@@ -31,7 +31,9 @@ const en = {
     "language": "Language",
     "language_toggle_aria": "Switch language to Spanish",
     "current_lang_aria": "Active language: English",
-    "theme_toggle_aria": "Toggle dark / light theme"
+    "theme_toggle_aria": "Toggle dark / light theme",
+    "theme_mode": "Mode",
+    "theme_aria": "Theme"
   },
   "header": {
     "title": "Saber Pro Results",
@@ -84,6 +86,12 @@ const en = {
   "stats": {
     "section_title": "Key Indicators & Statistical Summary",
     "section_subtitle": "Consolidated quantitative metrics computed from the 8 evaluated modular exams",
+    "badges": {
+      "official_mean": "🎯 Official Mean",
+      "engineering_ref": "📊 Engineering Reference",
+      "national_ref": "🇨🇴 National Reference",
+      "top_level": "🏆 Peak Level"
+    },
     "arithmetic_mean": {
       "title": "Overall Mean",
       "subtitle": "Arithmetic mean (8 modules)",
@@ -392,6 +400,11 @@ const en = {
   "charts": {
     "section_title": "Performance Comparison",
     "section_subtitle": "Individual scores compared to engineering and national averages",
+    "filters": {
+      "all": "All Modules (8)",
+      "generic": "Generic (5)",
+      "specific": "Specific (3)"
+    },
     "controls": {
       "view_selector": "Select chart view",
       "bar_chart": "Comparative Bar Chart",
@@ -623,7 +636,8 @@ const en = {
     "methodology": "Methodology",
     "data": "Data",
     "last_update": "Last updated: November 2026",
-    "verification_passed": "Independent statistical verification: Verified"
+    "verification_passed": "Independent statistical verification: Verified",
+    "open_source": "Open Source"
   }
 };
 

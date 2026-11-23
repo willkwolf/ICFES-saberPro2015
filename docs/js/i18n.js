@@ -305,7 +305,25 @@ export function init(options = {}) {
 
   let detectedLang = options.defaultLang || 'es';
 
-  // 1. Try localStorage
+  // 1. Browser language auto-detection: if user has English, switch to English
+  if (typeof navigator !== 'undefined') {
+    const navLangs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
+    for (const l of navLangs) {
+      if (l && typeof l === 'string') {
+        const clean = l.toLowerCase().trim();
+        if (clean.startsWith('en')) {
+          detectedLang = 'en';
+          break;
+        }
+        if (clean.startsWith('es')) {
+          detectedLang = 'es';
+          break;
+        }
+      }
+    }
+  }
+
+  // 2. Try localStorage (if explicitly set by user via manual toggle)
   try {
     if (typeof localStorage !== 'undefined') {
       const stored = localStorage.getItem('saber_pro_lang');
@@ -317,7 +335,7 @@ export function init(options = {}) {
     // Ignore restricted localStorage
   }
 
-  // 2. Set language
+  // 3. Set language
   setLanguage(detectedLang);
   return detectedLang;
 }
