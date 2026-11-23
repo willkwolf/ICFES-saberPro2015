@@ -38,6 +38,7 @@ const es = {
     "subtitle": "William Camilo Artunduaga Viana",
     "degree_info": "Ingeniería Industrial — Universidad ICESI, Cali",
     "official_badge": "Certificación Oficial Verificada",
+    "ethical_badge": "Soberanía Digital: 0 CDNs · 0 Rastreadores · Código Abierto",
     "disclaimer": "Reporte público de resultados y desempeño institucional",
     "summary_kicker": "Resumen Ejecutivo",
     "narrative_p1": "Evaluación oficial de Estado al culminar Ingeniería Industrial (Universidad ICESI). Destaca en el 0,6% superior nacional en Inglés (B2, percentil 99,4) y supera el promedio del país en el 87,5% de las pruebas evaluadas (7 de 8), alcanzando los quintiles más altos (Q4 y Q5) en el 75% de las competencias.",
