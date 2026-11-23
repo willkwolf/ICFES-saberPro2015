@@ -22,9 +22,9 @@ const es = {
   },
   "nav": {
     "skip_link": "Saltar al contenido principal",
-    "summary": "Resumen",
+    "summary": "Resultados",
     "visualizations": "Visualizaciones",
-    "tables": "Tabla de Resultados",
+    "tables": "Tablas",
     "anomalies": "Auditoría de Anomalías",
     "methodology": "Metodología",
     "verification": "Verificación Estadística",
@@ -34,10 +34,12 @@ const es = {
     "theme_toggle_aria": "Alternar modo oscuro / claro"
   },
   "header": {
-    "title": "Resultados SABER PRO 2015",
+    "title": "Resultados Saber Pro",
     "subtitle": "William Camilo Artunduaga Viana",
-    "degree_info": "Ingeniería Industrial — Universidad ICESI, Cali",
+    "degree_info": "Ingeniería Industrial — Universidad Icesi Cali",
+    "cohort_label": "Corte: 2015",
     "official_badge": "Certificación Oficial Verificada",
+    "ethical_badge": "Soberanía Digital: 0 CDNs · 0 Rastreadores · Código Abierto",
     "disclaimer": "Reporte público de resultados y desempeño institucional",
     "summary_kicker": "Resumen Ejecutivo",
     "narrative_p1": "Evaluación oficial de Estado al culminar Ingeniería Industrial (Universidad ICESI). Destaca en el 0,6% superior nacional en Inglés (B2, percentil 99,4) y supera el promedio del país en el 87,5% de las pruebas evaluadas (7 de 8), alcanzando los quintiles más altos (Q4 y Q5) en el 75% de las competencias.",

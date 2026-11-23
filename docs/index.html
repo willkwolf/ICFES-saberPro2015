@@ -28,14 +28,15 @@
     <!-- WCAG 2.1 AA Accessible Skip-to-Content Link -->
     <a href="#main-content" class="skip-link" data-i18n="nav.skip_link">Saltar al contenido principal</a>
 
-    <!-- Semantic Header Landmark (Meta / React App Bar Style) -->
+    <!-- Semantic Header Landmark -->
     <header class="site-header">
         <div class="container">
             <div class="header-top">
                 <div class="header-main">
-                    <h1 data-i18n="header.title">Resultados SABER PRO 2015</h1>
+                    <h1 data-i18n="header.title">Resultados Saber Pro</h1>
                     <p class="lead" data-i18n="header.subtitle">William Camilo Artunduaga Viana</p>
-                    <p class="text-small" data-i18n="header.degree_info">Ingeniería Industrial — Universidad ICESI, Cali</p>
+                    <p class="text-small" data-i18n="header.degree_info">Ingeniería Industrial — Universidad Icesi Cali</p>
+                    <p class="header-meta"><span data-i18n="header.cohort_label">Corte: 2015</span> &mdash; <span data-i18n="candidate_info.registration_label">Registro</span>: <strong data-i18n="candidate_info.registration_value">EK201532097061</strong></p>
                 </div>
                 <div class="controls-bar" role="toolbar" aria-label="Controles de accesibilidad e idioma">
                     <button id="btnThemeToggle" class="btn btn-theme" type="button" aria-label="Alternar modo oscuro / claro" aria-pressed="false" data-i18n-aria="nav.theme_toggle_aria">
@@ -47,48 +48,28 @@
                     </button>
                 </div>
             </div>
-            <div class="header-badges">
-                <span class="badge badge-official" data-i18n="header.official_badge">Certificación Oficial Verificada</span>
-                <span class="badge badge-ethical" data-i18n="header.ethical_badge">Soberanía Digital: 0 CDNs · 0 Rastreadores · Código Abierto</span>
-                <span class="text-small text-muted" data-i18n="header.disclaimer">Reporte público de resultados y desempeño institucional</span>
-            </div>
         </div>
     </header>
 
-    <!-- Navigation Landmark (Meta Dashboard Segment Tabs) -->
+    <!-- Navigation Landmark -->
     <nav class="main-nav" aria-label="Navegación principal">
         <div class="container nav-container">
             <ul class="nav-links">
-                <li><a href="#summary" class="nav-link" data-i18n="nav.summary">Resumen</a></li>
+                <li><a href="#summary" class="nav-link" data-i18n="nav.summary">Resultados</a></li>
                 <li><a href="#visualizations" class="nav-link" data-i18n="nav.visualizations">Visualizaciones</a></li>
-                <li><a href="#tables" class="nav-link" data-i18n="nav.tables">Tabla de Resultados</a></li>
+                <li><a href="#tables" class="nav-link" data-i18n="nav.tables">Tablas</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Main Content Landmark -->
     <main id="main-content" class="container">
-        <!-- Section 1: Candidate & Executive Summary (Meta / React Dashboard Style) -->
+        <!-- Bloque de resultados -->
         <section class="page-section" id="summary" aria-labelledby="heading-summary">
+            <h2 id="heading-summary" class="section-title" data-i18n="nav.summary">Resultados</h2>
+
             <!-- Hero Executive Card -->
             <div class="executive-hero-card">
-                <div class="hero-header">
-                    <div class="hero-identity">
-                        <div class="hero-avatar" aria-hidden="true">WA</div>
-                        <div>
-                            <div class="hero-title-row">
-                                <h2 id="heading-summary" class="hero-candidate-name" data-i18n="candidate_info.candidate_name">William Camilo Artunduaga Viana</h2>
-                                <span class="badge badge-verified" data-i18n="header.official_badge">Certificación Oficial Verificada</span>
-                            </div>
-                            <p class="hero-degree" data-i18n="header.degree_info">Ingeniería Industrial — Universidad ICESI, Cali</p>
-                        </div>
-                    </div>
-                    <div class="hero-exam-badge">
-                        <span class="exam-tag">SABER PRO 2015</span>
-                        <span class="exam-reg">Registro: <strong data-i18n="candidate_info.registration_value">EK201532097061</strong></span>
-                    </div>
-                </div>
-
                 <!-- Key Performance Indicator Cards (Meta Dashboard KPI Grid - First 7 Seconds Scan) -->
                 <div class="stats-grid">
                     <div class="stat-card" id="card-mean" tabindex="0" title="Media aritmética oficial exacta 11.0875 (11.1). Auditada contra la fuente primaria.">
@@ -149,7 +130,7 @@
                     </a>
                     <a href="#tables" class="btn-secondary hero-action-btn">
                         <span aria-hidden="true">📋</span>
-                        <span data-i18n="nav.tables">Tabla de Resultados</span>
+                        <span data-i18n="nav.tables">Tablas</span>
                     </a>
                 </div>
             </div>
@@ -377,7 +358,7 @@
             <div class="footer-simple">
                 <div class="footer-brand">
                     <strong>SABER PRO 2015 — William Camilo Artunduaga Viana</strong>
-                    <span class="footer-meta">Universidad ICESI · Cali · Registro <code>EK201532097061</code> · ICFES · 0 Rastreadores · 0 Cookies · Soberanía Digital</span>
+                    <span class="footer-meta">Universidad ICESI · Cali · Registro: <code>EK201532097061</code> · ICFES · Código Abierto</span>
                 </div>
                 <ul class="footer-links">
                     <li><a href="https://github.com/willkwolf/ICFES-saberPro2015" target="_blank" rel="noopener" data-i18n="footer.repository">Repositorio</a></li>

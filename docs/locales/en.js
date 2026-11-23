@@ -22,9 +22,9 @@ const en = {
   },
   "nav": {
     "skip_link": "Skip to main content",
-    "summary": "Summary",
+    "summary": "Results",
     "visualizations": "Visualizations",
-    "tables": "Results Table",
+    "tables": "Tables",
     "anomalies": "Anomalies Audit",
     "methodology": "Methodology",
     "verification": "Statistical Verification",
@@ -34,10 +34,12 @@ const en = {
     "theme_toggle_aria": "Toggle dark / light theme"
   },
   "header": {
-    "title": "SABER PRO 2015 Results",
+    "title": "Saber Pro Results",
     "subtitle": "William Camilo Artunduaga Viana",
     "degree_info": "Industrial Engineering — ICESI University, Cali",
+    "cohort_label": "Cohort: 2015",
     "official_badge": "Verified Official Certification",
+    "ethical_badge": "Digital Sovereignty: Zero CDNs · Zero Trackers · Open Source",
     "disclaimer": "Official public report of test results and institutional benchmarks",
     "summary_kicker": "Executive Summary",
     "narrative_p1": "Official higher education state examination upon completing Industrial Engineering (Universidad ICESI). The candidate ranks in the top 0.6% nationwide in English (B2, 99.4th percentile) and exceeds national benchmarks across 87.5% of tested modules (7 of 8), placing in the nation's highest tiers (Q4 and Q5) in 75% of competencies.",

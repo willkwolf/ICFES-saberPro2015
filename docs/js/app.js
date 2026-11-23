@@ -127,18 +127,66 @@ function updateStaticTranslations(lang) {
 }
 
 /**
- * Updates Stat Cards values with localized formatting
- * @param {object} dataset
+ * Smooth cubic-ease count-up interpolation for numerical KPI delight in first 650ms.
+ * Honors prefers-reduced-motion to ensure full accessibility.
+ * @param {HTMLElement} element
+ * @param {number} targetVal
+ * @param {number} durationMs
  * @param {string} lang
  */
-function updateStatCards(dataset, lang) {
+function animateCountUp(element, targetVal, durationMs = 650, lang = 'es') {
+  if (!element) return;
+  const prefersReduced = typeof window !== 'undefined' &&
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const finalFormatted = i18n.formatScore ? i18n.formatScore(targetVal, lang) : targetVal.toFixed(1);
+
+  if (prefersReduced || typeof requestAnimationFrame === 'undefined' || typeof performance === 'undefined') {
+    element.textContent = finalFormatted;
+    return;
+  }
+
+  const startVal = 0.0;
+  const startTime = performance.now();
+
+  function step(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / durationMs, 1.0);
+    // Cubic ease-out: 1 - Math.pow(1 - progress, 3)
+    const easeProgress = 1 - Math.pow(1 - progress, 3);
+    const currentVal = startVal + (targetVal - startVal) * easeProgress;
+
+    element.textContent = i18n.formatScore ? i18n.formatScore(currentVal, lang) : currentVal.toFixed(1);
+
+    if (progress < 1.0) {
+      requestAnimationFrame(step);
+    } else {
+      element.textContent = finalFormatted;
+    }
+  }
+
+  requestAnimationFrame(step);
+}
+
+/**
+ * Updates Stat Cards values with localized formatting and optional micro-delight count-up
+ * @param {object} dataset
+ * @param {string} lang
+ * @param {boolean} isInitial
+ */
+function updateStatCards(dataset, lang, isInitial = false) {
   const cards = dataset.calculated_indicators;
   if (!cards) return;
 
   const elMean = document.querySelector('#card-mean .stat-number');
   if (elMean) {
-    // Show exact calculated mean (11,1 in es, 11.1 in en) or legacy 11.2 as audited
-    elMean.textContent = i18n.formatScore ? i18n.formatScore(cards.arithmetic_mean, lang) : '11.1';
+    if (isInitial) {
+      animateCountUp(elMean, cards.arithmetic_mean, 650, lang);
+    } else {
+      // Show exact calculated mean (11,1 in es, 11.1 in en) or legacy 11.2 as audited
+      elMean.textContent = i18n.formatScore ? i18n.formatScore(cards.arithmetic_mean, lang) : '11.1';
+    }
   }
 
   const elQuintiles = document.querySelector('#card-quintiles .stat-number');
@@ -194,13 +242,14 @@ function renderAnomalies(dataset, lang) {
 /**
  * Full page re-render when language or data changes
  * @param {string} lang
+ * @param {boolean} isInitial
  */
-export function refreshUI(lang) {
+export function refreshUI(lang, isInitial = false) {
   state.currentLang = lang;
   updateStaticTranslations(lang);
 
   if (state.dataset) {
-    updateStatCards(state.dataset, lang);
+    updateStatCards(state.dataset, lang, isInitial);
     tables.renderTables(state.dataset, lang);
     charts.initComparisonChart(state.dataset, lang, state.chartFilter);
     charts.initBellCurveChart(state.dataset, lang);
@@ -303,8 +352,8 @@ export async function initApp() {
     }
   });
 
-  // Initial render
-  refreshUI(state.currentLang);
+  // Initial render with living count-up
+  refreshUI(state.currentLang, true);
 }
 
 // Auto-boot on DOMContentLoaded

@@ -34,6 +34,23 @@
   border: 1px solid var(--status-info-border);
 }
 
+.badge-ethical {
+  background-color: rgba(15, 118, 110, 0.12);
+  color: #0f766e;
+  border: 1px solid rgba(15, 118, 110, 0.3);
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+[data-theme="dark"] .badge-ethical {
+  background-color: rgba(45, 212, 191, 0.15);
+  color: #2dd4bf;
+  border-color: rgba(45, 212, 191, 0.35);
+}
+
 /* Quintile Badges - Strictly WCAG AA Compliant (Contrast >= 4.5:1) */
 .quintil-badge {
   display: inline-block;
@@ -70,33 +87,37 @@
   color: var(--badge-q5-fg);
 }
 
-/* Stat Cards */
+/* Stat Cards (7-Second Scan Optimized) */
 .stat-card {
   background-color: var(--bg-surface-elevated);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: 1.25rem;
+  padding: 1rem 1.15rem;
   box-shadow: var(--card-shadow);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
   min-width: 0;
   overflow-wrap: break-word;
   word-break: break-word;
+  cursor: pointer;
 }
 
-.stat-card:hover {
-  border-color: var(--border-strong);
-  box-shadow: var(--card-shadow-hover);
+.stat-card:hover,
+.stat-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--color-primary-600);
+  box-shadow: 0 6px 14px -2px rgba(29, 78, 216, 0.15), var(--card-shadow);
 }
 
 .stat-number {
-  font-size: clamp(1.85rem, 1.5rem + 1vw, 2.5rem);
+  font-size: clamp(1.75rem, 1.4rem + 0.8vw, 2.35rem);
   font-weight: 800;
   color: var(--color-primary-600);
   line-height: 1.1;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.25rem;
+  font-variant-numeric: tabular-nums;
   overflow-wrap: break-word;
   word-break: break-word;
 }
@@ -105,40 +126,47 @@
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
   overflow-wrap: break-word;
   word-break: break-word;
 }
 
 .stat-sublabel {
-  font-size: 0.825rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   line-height: 1.35;
   overflow-wrap: break-word;
   word-break: break-word;
 }
 
-/* Info Cards (Candidate Info) */
+/* Info Cards (Candidate Info - High Density Ribbon) */
 .info-card {
   background-color: var(--bg-surface-subtle);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 0.85rem 1rem;
+  padding: 0.55rem 0.85rem;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.info-card:hover {
+  border-color: var(--border-strong);
+  background-color: var(--bg-surface-elevated);
 }
 
 .info-label {
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.725rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
 }
 
 .info-value {
-  font-size: 1rem;
+  font-size: 0.925rem;
   font-weight: 600;
   color: var(--text-primary);
+  line-height: 1.25;
 }
 
 /* Buttons and Controls */
@@ -549,14 +577,14 @@ table.data-table tbody tr.table-row-q1 {
   #table-specific td:nth-child(7)::before { content: "N Nac.: "; }
 }
 
-/* Executive Summary Hero Card (Meta / React Dashboard Style) */
+/* Executive Summary Hero Card (7-Second Heuristic Architecture) */
 .executive-hero-card {
   background-color: var(--bg-surface-elevated);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: clamp(1.25rem, 1rem + 1vw, 2rem);
+  padding: clamp(1rem, 0.85rem + 0.8vw, 1.5rem);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
@@ -581,8 +609,8 @@ table.data-table tbody tr.table-row-q1 {
 }
 
 .hero-avatar {
-  width: 52px;
-  height: 52px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background-color: var(--color-slate-800);
   color: #ffffff;
@@ -604,7 +632,7 @@ table.data-table tbody tr.table-row-q1 {
 }
 
 .hero-candidate-name {
-  font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.75rem);
+  font-size: clamp(1.2rem, 1rem + 0.8vw, 1.65rem);
   font-weight: 700;
   margin: 0;
   color: var(--text-primary);
@@ -614,9 +642,9 @@ table.data-table tbody tr.table-row-q1 {
 }
 
 .hero-degree {
-  font-size: 0.95rem;
+  font-size: 0.925rem;
   color: var(--text-secondary);
-  margin: 0.25rem 0 0;
+  margin: 0.2rem 0 0;
   font-weight: 500;
   overflow-wrap: break-word;
   word-break: break-word;
@@ -649,8 +677,8 @@ table.data-table tbody tr.table-row-q1 {
 }
 
 .hero-summary-box {
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
   border-top: 1px solid var(--border-subtle);
 }
 
@@ -660,37 +688,37 @@ table.data-table tbody tr.table-row-q1 {
   letter-spacing: 0.06em;
   font-weight: 700;
   color: var(--color-primary-600);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
 }
 
 .hero-narrative {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.55;
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   overflow-wrap: break-word;
 }
 
 .hero-narrative p {
   margin-block-start: 0;
-  margin-block-end: 0.75rem;
-  line-height: 1.6;
+  margin-block-end: 0.5rem;
+  line-height: 1.55;
 }
 
 .hero-narrative p:last-child {
-  margin-block-end: 1rem;
+  margin-block-end: 0.75rem;
 }
 
 .hero-chips-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.45rem;
 }
 
 .hero-chip {
-  padding: 0.35rem 0.75rem;
+  padding: 0.3rem 0.7rem;
   border-radius: var(--radius-full);
-  font-size: 0.825rem;
+  font-size: 0.8rem;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -703,15 +731,72 @@ table.data-table tbody tr.table-row-q1 {
   max-width: 100%;
   overflow-wrap: break-word;
   word-break: break-word;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.hero-chip:hover {
+  border-color: var(--color-primary-600);
+  background-color: var(--bg-surface-elevated);
+}
+
+/* 7-Second Rule Micro-Interaction Action Bar */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+.hero-action-btn {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.hero-action-btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary.hero-action-btn {
+  background-color: var(--color-primary-600);
+  color: #ffffff;
+  border: 1px solid var(--color-primary-600);
+}
+
+.btn-primary.hero-action-btn:hover {
+  background-color: var(--color-primary-700);
+  border-color: var(--color-primary-700);
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.25);
+}
+
+.btn-secondary.hero-action-btn {
+  background-color: var(--bg-surface-subtle);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-secondary.hero-action-btn:hover {
+  background-color: var(--bg-surface-elevated);
+  border-color: var(--border-strong);
 }
 
 
-/* Mobile Ergonomics & Anti-Truncation Rules */
+/* Mobile Ergonomics & Anti-Truncation Rules (4-Scroll Optimized) */
 @media (max-width: 640px) {
   .hero-header {
     flex-direction: column;
     align-items: stretch;
-    gap: 0.85rem;
+    gap: 0.5rem;
   }
 
   .hero-exam-badge {
@@ -719,24 +804,33 @@ table.data-table tbody tr.table-row-q1 {
   }
 
   .hero-candidate-name {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
   }
 
   .hero-degree {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .hero-chip {
-    font-size: 0.8rem;
-    padding: 0.3rem 0.65rem;
+    font-size: 0.775rem;
+    padding: 0.25rem 0.55rem;
   }
 
   .stat-card {
-    padding: 1rem;
+    padding: 0.65rem 0.75rem;
   }
 
   .stat-number {
-    font-size: 2rem;
+    font-size: 1.65rem;
+  }
+
+  .stat-label {
+    font-size: 0.825rem;
+  }
+
+  .stat-sublabel {
+    font-size: 0.725rem;
+    line-height: 1.25;
   }
 
   figure.chart-figure {

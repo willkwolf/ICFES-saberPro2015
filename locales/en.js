@@ -22,9 +22,9 @@ const en = {
   },
   "nav": {
     "skip_link": "Skip to main content",
-    "summary": "Summary",
+    "summary": "Results",
     "visualizations": "Visualizations",
-    "tables": "Results Table",
+    "tables": "Tables",
     "anomalies": "Anomalies Audit",
     "methodology": "Methodology",
     "verification": "Statistical Verification",
@@ -34,9 +34,10 @@ const en = {
     "theme_toggle_aria": "Toggle dark / light theme"
   },
   "header": {
-    "title": "SABER PRO 2015 Results",
+    "title": "Saber Pro Results",
     "subtitle": "William Camilo Artunduaga Viana",
     "degree_info": "Industrial Engineering — ICESI University, Cali",
+    "cohort_label": "Cohort: 2015",
     "official_badge": "Verified Official Certification",
     "ethical_badge": "Digital Sovereignty: Zero CDNs · Zero Trackers · Open Source",
     "disclaimer": "Official public report of test results and institutional benchmarks",
